@@ -10,21 +10,22 @@ locais em `_ext/`. Não há build — é só servir a pasta.
 
 ```
 .
-├── index.html          # página inteira (HTML + CSS + JS embutidos)
-├── robots.txt
-├── sitemap.xml
-├── site.webmanifest
 ├── wrangler.jsonc      # deploy na Cloudflare (Workers Static Assets)
-└── _ext/
-    ├── fonts/          # Mazzard (4 pesos, .ttf)
-    ├── img/            # fundo do hero e captura da plataforma
-    └── icons/          # logo, favicon, mapa-múndi e ícones dos ativos
+└── public/             # ÚNICA pasta publicada
+    ├── index.html      # página inteira (HTML + CSS + JS embutidos)
+    ├── robots.txt
+    ├── sitemap.xml
+    ├── site.webmanifest
+    └── _ext/
+        ├── fonts/      # Mazzard (4 pesos, .ttf)
+        ├── img/        # fundo do hero e captura da plataforma
+        └── icons/      # logo, favicon, mapa-múndi e ícones dos ativos
 ```
 
 ## Rodar localmente
 
 ```sh
-python3 -m http.server 8123
+cd public && python3 -m http.server 8123
 ```
 
 ## Publicar
