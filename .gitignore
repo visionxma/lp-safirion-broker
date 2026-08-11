@@ -1,0 +1,11 @@
+.DS_Store
+.wrangler/
+node_modules/
+
+# backups locais do processo de rebranding (contêm conteúdo da Kirvus)
+index.html.bak-*
+_probe.html
+_shot*.html
+_slice-*.html
+_s*.html
+_v*.html
