@@ -1,0 +1,10 @@
+# Assets versionados por conteudo: cache longo. Reduz o tempo de carregamento
+# em visitas repetidas, que conta para Core Web Vitals.
+/_ext/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# O HTML precisa revalidar, senao um deploy demora a chegar no usuario
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
