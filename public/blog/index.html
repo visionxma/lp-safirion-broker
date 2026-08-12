@@ -1,0 +1,72 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Blog da Safirion — saque, spread, regulamentação e primeiros passos</title><meta name="description" content="Artigos sobre como funciona o saque em corretoras, spread fixo, regulamentação em Seychelles e quanto capital faz sentido para começar."><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1"><link rel="canonical" href="https://lp-safirion-broker.visionxma.workers.dev/blog/"><link rel="icon" type="image/svg+xml" href="/_ext/icons/safirion-icon.svg"><meta name="theme-color" content="#060b18"><meta property="og:type" content="article"><meta property="og:site_name" content="Safirion"><meta property="og:locale" content="pt_BR"><meta property="og:title" content="Blog da Safirion — saque, spread, regulamentação e primeiros passos"><meta property="og:description" content="Artigos sobre como funciona o saque em corretoras, spread fixo, regulamentação em Seychelles e quanto capital faz sentido para começar."><meta property="og:url" content="https://lp-safirion-broker.visionxma.workers.dev/blog/"><meta property="og:image" content="https://lp-safirion-broker.visionxma.workers.dev/_ext/img/og-image.jpg"><meta name="twitter:card" content="summary_large_image"><link rel="preload" as="font" type="font/woff2" crossorigin href="/_ext/fonts/MazzardM-Regular.woff2"><style>
+@font-face{font-family:Mazzard;src:url(/_ext/fonts/MazzardM-Regular.woff2) format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:Mazzard;src:url(/_ext/fonts/MazzardM-Medium.woff2) format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:Mazzard;src:url(/_ext/fonts/MazzardM-SemiBold.woff2) format('woff2');font-weight:600;font-display:swap}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:#060b18;color:#fff;font-family:Mazzard,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+ line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{max-width:100%;height:auto;display:block}
+.wrap{max-width:760px;margin:0 auto;padding:0 24px}
+
+/* ---------- topo ---------- */
+.top{position:sticky;top:0;z-index:20;background:rgba(6,11,24,.86);backdrop-filter:blur(16px) saturate(1.4);
+ -webkit-backdrop-filter:blur(16px) saturate(1.4);border-bottom:1px solid rgba(255,255,255,.08)}
+.top .in{max-width:1180px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.top img{height:32px;width:auto}
+.top nav{display:flex;align-items:center;gap:8px}
+.top a.btn{background:#2389e6;color:#060b18;font-weight:700;font-size:14.5px;text-decoration:none;
+ padding:11px 20px;border-radius:999px;box-shadow:0 0 26px rgba(35,137,230,.32);white-space:nowrap}
+.top a.btn:hover{filter:brightness(1.07)}
+.top a.gh{color:#a1b8c3;text-decoration:none;font-size:14.5px;padding:11px 14px;white-space:nowrap}
+.top a.gh:hover{color:#fff}
+
+/* ---------- cabecalho ---------- */
+.head{padding:clamp(48px,7vw,84px) 0 clamp(28px,4vw,44px);position:relative;overflow:hidden}
+.head::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+ background:radial-gradient(760px 420px at 50% -10%,rgba(35,137,230,.16),transparent 70%)}
+.head .wrap{position:relative;z-index:1}
+.tag{display:inline-block;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);
+ border-radius:999px;padding:7px 15px;font-size:13px;color:#d6edf8;margin-bottom:20px}
+h1{font-size:clamp(30px,5vw,46px);font-weight:600;line-height:1.14;letter-spacing:-.02em;margin:0 0 18px}
+.meta{color:#7a8f9b;font-size:14.5px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.meta i{font-style:normal;color:#3d4d59}
+
+/* ---------- corpo ---------- */
+article{padding-bottom:clamp(40px,6vw,72px)}
+article h2{font-size:clamp(22px,3.2vw,29px);font-weight:600;line-height:1.22;letter-spacing:-.015em;
+ margin:clamp(38px,5vw,52px) 0 14px}
+article h3{font-size:clamp(17px,2.2vw,20px);font-weight:600;margin:30px 0 10px;color:#d6edf8}
+article p{margin:0 0 18px;color:#a1b8c3;font-size:17px}
+article strong{color:#fff;font-weight:600}
+article em{color:#d6edf8;font-style:italic}
+article ul{margin:0 0 22px;padding:0;list-style:none}
+article ul li{position:relative;padding-left:26px;margin-bottom:11px;color:#a1b8c3;font-size:17px}
+article ul li::before{content:"";position:absolute;left:2px;top:11px;width:7px;height:7px;border-radius:50%;
+ background:#2389e6}
+.cta{display:block;margin:clamp(34px,5vw,46px) 0;padding:clamp(24px,3.4vw,32px);border-radius:20px;
+ border:1px solid rgba(35,137,230,.28);background:linear-gradient(155deg,#111a2b,#0a1120 70%);text-decoration:none}
+.cta b{display:block;font-size:19px;font-weight:600;color:#fff;margin-bottom:6px}
+.cta span{color:#a1b8c3;font-size:15px}
+.cta:hover{border-color:rgba(35,137,230,.5)}
+.aviso{margin-top:clamp(34px,5vw,48px);padding-top:22px;border-top:1px solid rgba(255,255,255,.08);
+ color:#6f818f;font-size:13.5px;line-height:1.65}
+
+/* ---------- lista ---------- */
+.lista{display:grid;gap:16px;padding-bottom:clamp(48px,7vw,80px)}
+.card{display:block;padding:clamp(22px,3vw,30px);border-radius:20px;border:1px solid rgba(255,255,255,.10);
+ background:linear-gradient(155deg,#111a2b 0%,#0a1120 62%,#060b18 100%);text-decoration:none;
+ transition:border-color .3s ease,transform .3s cubic-bezier(.2,.8,.2,1)}
+.card:hover{border-color:rgba(35,137,230,.34);transform:translateY(-3px)}
+.card h2{font-size:clamp(19px,2.6vw,23px);font-weight:600;line-height:1.26;margin:12px 0 10px;color:#fff}
+.card p{color:#a1b8c3;font-size:15.5px;margin:0 0 14px}
+.card .meta{font-size:13.5px}
+
+/* ---------- rodape ---------- */
+footer{border-top:1px solid rgba(255,255,255,.08);padding:40px 0;color:#6f818f;font-size:13.5px}
+footer .wrap{max-width:1180px;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+footer a{color:#a1b8c3;text-decoration:none}
+footer a:hover{color:#fff}
+@media(max-width:560px){.top .in{padding:12px 18px}.top a.gh{display:none}}
+</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Blog", "@id": "https://lp-safirion-broker.visionxma.workers.dev/blog/#blog", "name": "Blog da Safirion", "description": "Artigos sobre saque, spread, regulamentação e primeiros passos no trading.", "inLanguage": "pt-BR", "url": "https://lp-safirion-broker.visionxma.workers.dev/blog/", "publisher": {"@type": "Organization", "name": "Safirion", "url": "https://lp-safirion-broker.visionxma.workers.dev/"}, "blogPost": [{"@type": "BlogPosting", "headline": "Como funciona o saque em uma corretora (e o que costuma travar o seu)", "url": "https://lp-safirion-broker.visionxma.workers.dev/blog/como-funciona-saque-corretora/", "datePublished": "2026-08-12", "description": "Prazos, taxas, limites e os quatro motivos reais pelos quais um pedido de saque fica parado. Como avaliar a política de retirada antes de depositar."}, {"@type": "BlogPosting", "headline": "O que é spread fixo e por que ele muda o seu resultado", "url": "https://lp-safirion-broker.visionxma.workers.dev/blog/o-que-e-spread-fixo/", "datePublished": "2026-08-12", "description": "A diferença entre spread fixo e variável, quanto cada um custa na prática e por que a conta muda justamente nos dias em que você mais opera."}, {"@type": "BlogPosting", "headline": "Corretora regulamentada em Seychelles é segura? O que a licença cobre", "url": "https://lp-safirion-broker.visionxma.workers.dev/blog/corretora-regulamentada-seychelles/", "datePublished": "2026-08-12", "description": "O que significa a regulamentação em Seychelles, qual proteção ela oferece de fato e quais sinais verificar além da licença."}, {"@type": "BlogPosting", "headline": "Quanto preciso para começar a operar Forex?", "url": "https://lp-safirion-broker.visionxma.workers.dev/blog/quanto-preciso-para-comecar-a-operar/", "datePublished": "2026-08-12", "description": "O depósito mínimo é a menor parte da conta. Como calcular o capital que faz sentido a partir do risco por operação, e por que começar pequeno é técnico, não tímido."}]}</script></head><body><header class="top"><div class="in"><a href="/" aria-label="Safirion"><img src="/_ext/icons/safirion-logo-horizontal.svg" alt="Safirion" width="234" height="55"></a><nav><a class="gh" href="/blog/">Blog</a><a class="btn" href="https://trade.safirion.com/register?aff=818084&amp;aff_model=revenue&amp;afftrack=LPP" target="_blank" rel="noopener">Abrir conta</a></nav></div></header><div class="head"><div class="wrap"><span class="tag">Blog</span><h1>Como corretora funciona por dentro</h1><p class="meta">Saque, spread, regulamentação e primeiros passos — explicados sem jargão.</p></div></div><div class="wrap"><div class="lista"><a class="card" href="/blog/como-funciona-saque-corretora/"><span class="tag">Operação</span><h2>Como funciona o saque em uma corretora (e o que costuma travar o seu)</h2><p>Prazos, taxas, limites e os quatro motivos reais pelos quais um pedido de saque fica parado. Como avaliar a política de retirada antes de depositar.</p><p class="meta"><time datetime="2026-08-12">12 de agosto de 2026</time><i>·</i><span>7 min</span></p></a><a class="card" href="/blog/o-que-e-spread-fixo/"><span class="tag">Custos</span><h2>O que é spread fixo e por que ele muda o seu resultado</h2><p>A diferença entre spread fixo e variável, quanto cada um custa na prática e por que a conta muda justamente nos dias em que você mais opera.</p><p class="meta"><time datetime="2026-08-12">12 de agosto de 2026</time><i>·</i><span>6 min</span></p></a><a class="card" href="/blog/corretora-regulamentada-seychelles/"><span class="tag">Segurança</span><h2>Corretora regulamentada em Seychelles é segura? O que a licença cobre</h2><p>O que significa a regulamentação em Seychelles, qual proteção ela oferece de fato e quais sinais verificar além da licença.</p><p class="meta"><time datetime="2026-08-12">12 de agosto de 2026</time><i>·</i><span>7 min</span></p></a><a class="card" href="/blog/quanto-preciso-para-comecar-a-operar/"><span class="tag">Primeiros passos</span><h2>Quanto preciso para começar a operar Forex?</h2><p>O depósito mínimo é a menor parte da conta. Como calcular o capital que faz sentido a partir do risco por operação, e por que começar pequeno é técnico, não tímido.</p><p class="meta"><time datetime="2026-08-12">12 de agosto de 2026</time><i>·</i><span>6 min</span></p></a></div></div><footer><div class="wrap"><span>© 2026 Safirion. Todos os direitos reservados.</span><span><a href="/">Início</a> · <a href="/blog/">Blog</a> · <a href="mailto:contato@safirion.com">contato@safirion.com</a></span></div></footer></body></html>

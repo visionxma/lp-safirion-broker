@@ -130,6 +130,12 @@ def traduzir(s, lang):
         if versoes.get(lang):
             s = s.replace('"%s"' % pt_a, '"%s"' % versoes[lang])
 
+    # 2c. link para o blog no rodape (o Google precisa de link interno para achar)
+    nav = i18n.T['Navegação'].get(lang, 'Navegação')
+    a = '<h3>%s</h3>\n    <ul>' % nav
+    if a in s and 'href="/blog/"' not in s:
+        s = s.replace(a, a + '<li><a href="/blog/">Blog</a></li>', 1)
+
     # 3. meta tags
     M = i18n.META
     s = s.replace(M['title']['pt'], M['title'][lang])

@@ -69,3 +69,22 @@ Ele também cuida de: `hreflang` recíproco entre os quatro + `x-default`,
 `canonical` próprio por idioma, `lang` do `<html>`, `og:locale`, tradução dos
 `alt` das imagens e conversão dos caminhos de assets para absolutos (as páginas
 traduzidas vivem em subpasta).
+
+## Blog
+
+Fica fora da landing de propósito: a home trabalha conversão, o blog trabalha
+busca. Cada artigo é uma porta de entrada própria, com `title`, `description`,
+`canonical` e JSON-LD `Article` dele.
+
+```sh
+python3 scripts/blog.py public https://safirion.com
+```
+
+O conteúdo mora em `scripts/artigos.py` — para publicar um artigo novo, some
+uma entrada na lista `ARTIGOS` e rode o comando. O índice, o JSON-LD e os cards
+são montados a partir dela.
+
+Os artigos miram busca de cauda longa (menos volume, intenção clara, menos
+concorrência), que é onde um domínio novo tem chance real de aparecer. Como é
+conteúdo financeiro — YMYL para o Google — o texto evita promessa de retorno,
+atribui os números da Safirion à fonte e fecha com aviso de risco.
