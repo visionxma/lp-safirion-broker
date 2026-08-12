@@ -43,3 +43,29 @@ wrangler deploy
 - A base foi um export do Framer "de-hidratado" (sem JS remoto). Os blocos com
   `id="kv-*"` são código próprio — buscar por `kv-` para navegar.
 - O CSS do Framer é minificado e não comentável internamente.
+
+## Idiomas
+
+A página existe em quatro idiomas. **O português é a fonte** — edite apenas
+`public/index.html` e regenere os outros três:
+
+```sh
+python3 scripts/gerar.py public https://lp-safirion-broker.visionxma.workers.dev
+```
+
+| Idioma | URL | Arquivo |
+|---|---|---|
+| Português (padrão) | `/` | `public/index.html` |
+| English | `/en/` | gerado |
+| Español | `/es/` | gerado |
+| Français | `/fr/` | gerado |
+
+O gerador é idempotente: limpa o que injetou antes de injetar de novo, então
+pode rodar quantas vezes quiser. As traduções ficam em `scripts/i18n.py` —
+strings ausentes do catálogo permanecem em português de propósito (nomes
+próprios, tickers, e-mail e os endereços societários).
+
+Ele também cuida de: `hreflang` recíproco entre os quatro + `x-default`,
+`canonical` próprio por idioma, `lang` do `<html>`, `og:locale`, tradução dos
+`alt` das imagens e conversão dos caminhos de assets para absolutos (as páginas
+traduzidas vivem em subpasta).
