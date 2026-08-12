@@ -10,16 +10,20 @@ locais em `_ext/`. Não há build — é só servir a pasta.
 
 ```
 .
-├── wrangler.jsonc      # deploy na Cloudflare (Workers Static Assets)
-└── public/             # ÚNICA pasta publicada
-    ├── index.html      # página inteira (HTML + CSS + JS embutidos)
-    ├── robots.txt
-    ├── sitemap.xml
-    ├── site.webmanifest
-    └── _ext/
-        ├── fonts/      # Mazzard (4 pesos, .ttf)
-        ├── img/        # fundo do hero e captura da plataforma
-        └── icons/      # logo, favicon, mapa-múndi e ícones dos ativos
+├── src/index.html      # FONTE em português — edite só aqui
+├── scripts/
+│   ├── gerar.py        # gera /pt/ /en/ /es/ /fr/ a partir da fonte
+│   ├── i18n.py         # catálogo de traduções
+│   ├── blog.py         # gera /blog/
+│   └── artigos.py      # conteúdo dos artigos
+├── wrangler.jsonc
+└── public/             # SÓ arquivos gerados — é o que vai para o ar
+    ├── pt/ en/ es/ fr/
+    ├── blog/
+    ├── 404.html  robots.txt  sitemap.xml
+    ├── _headers        # cache e cabeçalhos de segurança
+    ├── _redirects      # preserva as URLs antigas do safirion.com
+    └── _ext/           # fontes, imagens e ícones
 ```
 
 ## Rodar localmente
@@ -50,12 +54,13 @@ A página existe em quatro idiomas. **O português é a fonte** — edite apenas
 `public/index.html` e regenere os outros três:
 
 ```sh
-python3 scripts/gerar.py public https://lp-safirion-broker.visionxma.workers.dev
+python3 scripts/gerar.py public https://safirion.com
+python3 scripts/blog.py  public https://safirion.com
 ```
 
 | Idioma | URL | Arquivo |
 |---|---|---|
-| Português (padrão) | `/` | `public/index.html` |
+| Português | `/pt/` | gerado |
 | English | `/en/` | gerado |
 | Español | `/es/` | gerado |
 | Français | `/fr/` | gerado |
@@ -88,3 +93,21 @@ Os artigos miram busca de cauda longa (menos volume, intenção clara, menos
 concorrência), que é onde um domínio novo tem chance real de aparecer. Como é
 conteúdo financeiro — YMYL para o Google — o texto evita promessa de retorno,
 atribui os números da Safirion à fonte e fecha com aviso de risco.
+
+## Migração do safirion.com
+
+Este site substitui o safirion.com. O site antigo tinha URLs já indexadas, e
+`public/_redirects` existe para não perdê-las:
+
+| URL antiga | Destino | Motivo |
+|---|---|---|
+| `/` | `/pt/` (301) | a raiz servia com canonical para `/en/`; aqui o público é Brasil |
+| `/terms.html` | PDF de Termos e Condições | página existia e respondia 200 |
+| `/legal/terms/` | PDF de Termos e Condições | idem |
+| `/legal/privacy/` | PDF de Política de Cookies | **provisório** — ver abaixo |
+
+O português ficou em `/pt/`, e não na raiz, porque essa URL **já está indexada**
+no safirion.com. Movê-la para `/` criaria um 404 na página que tem histórico.
+
+⚠️ `/legal/privacy/` aponta para a Política de Cookies por falta de um documento
+de privacidade nos materiais da Safirion. Substituir quando houver.

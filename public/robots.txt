@@ -1,11 +1,7 @@
 User-agent: *
 Allow: /
 
-# o Googlebot precisa dos assets para renderizar e avaliar a pagina
+# o Googlebot precisa dos assets para renderizar
 Allow: /_ext/
 
-# rastreadores de IA que nao trazem trafego
-User-agent: GPTBot
-Disallow:
-
-Sitemap: https://lp-safirion-broker.visionxma.workers.dev/sitemap.xml
+Sitemap: https://safirion.com/sitemap.xml

@@ -362,4 +362,6 @@ ATRIBUTOS = {
 IDIOMAS = ['en', 'es', 'fr']
 NOMES = {'pt': 'Português', 'en': 'English', 'es': 'Español', 'fr': 'Français'}
 CURTO = {'pt': 'PT', 'en': 'EN', 'es': 'ES', 'fr': 'FR'}
-CAMINHO = {'pt': '/', 'en': '/en/', 'es': '/es/', 'fr': '/fr/'}
+# /pt/ e nao / porque o safirion.com ja tem essa URL indexada; trocar
+# para a raiz criaria um 404 na pagina que ja tem historico.
+CAMINHO = {'pt': '/pt/', 'en': '/en/', 'es': '/es/', 'fr': '/fr/'}

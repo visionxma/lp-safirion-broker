@@ -14,7 +14,8 @@ import i18n
 
 PUB = sys.argv[1].rstrip('/')
 URL = sys.argv[2].rstrip('/')
-FONTE = os.path.join(PUB, 'index.html')
+# a fonte fica fora de public/ para nao ser servida e duplicar o /pt/
+FONTE = os.path.join(os.path.dirname(PUB), 'src', 'index.html')
 
 TODOS = ['pt'] + i18n.IDIOMAS
 
@@ -103,6 +104,14 @@ def hreflang(lang):
     return out
 
 
+def traduzir_caminhos(s):
+    """Assets em caminho absoluto: todas as paginas vivem em subpasta."""
+    s = s.replace('href="_ext/', 'href="/_ext/').replace('src="_ext/', 'src="/_ext/')
+    s = s.replace('url(_ext/', 'url(/_ext/').replace("src='_ext/", "src='/_ext/")
+    s = s.replace('"_ext/icons/ativos/', '"/_ext/icons/ativos/')
+    return s
+
+
 # ---------------------------------------------------------------------------
 def traduzir(s, lang):
     # 1. textos visiveis, do mais longo para o mais curto para nao quebrar
@@ -146,16 +155,16 @@ def traduzir(s, lang):
     s = s.replace('content="pt_BR"', 'content="%s"' % M['og_locale'][lang])
 
     # 4. as paginas ficam em subpasta: caminho relativo quebraria
-    s = s.replace('href="_ext/', 'href="/_ext/').replace('src="_ext/', 'src="/_ext/')
-    s = s.replace('url(_ext/', 'url(/_ext/').replace("src='_ext/", "src='/_ext/")
-    s = s.replace("'/_ext/icons/ativos/'", "'/_ext/icons/ativos/'")
-    s = s.replace('"_ext/icons/ativos/', '"/_ext/icons/ativos/')
+    s = traduzir_caminhos(s)
 
-    # 5. canonical e og:url proprios
-    s = s.replace('<link rel="canonical" href="%s/">' % URL,
-                  '<link rel="canonical" href="%s%s">' % (URL, i18n.CAMINHO[lang]))
-    s = s.replace('<meta property="og:url" content="%s/">' % URL,
-                  '<meta property="og:url" content="%s%s">' % (URL, i18n.CAMINHO[lang]))
+    return s
+
+
+def canonicalizar(s, lang):
+    s = re.sub(r'<link rel="canonical" href="[^"]*">',
+               '<link rel="canonical" href="%s%s">' % (URL, i18n.CAMINHO[lang]), s)
+    s = re.sub(r'<meta property="og:url" content="[^"]*">',
+               '<meta property="og:url" content="%s%s">' % (URL, i18n.CAMINHO[lang]), s)
     return s
 
 
@@ -173,6 +182,7 @@ def limpar(s):
 def injetar_comuns(s, lang):
     """CSS, JS, hreflang e o seletor — iguais em todos os idiomas."""
     s = limpar(s)
+    s = canonicalizar(s, lang)
     s = s.replace('</head>', CSS_LANG + hreflang(lang) + '</head>', 1)
     s = s.replace('</body>', JS_LANG + '</body>', 1)
 
@@ -189,10 +199,13 @@ def injetar_comuns(s, lang):
 # ---------------------------------------------------------------------------
 base = limpar(io.open(FONTE, encoding='utf-8').read())
 
-# o proprio portugues tambem recebe hreflang e seletor
-pt, n_pt = injetar_comuns(base, 'pt')
-io.open(FONTE, 'w', encoding='utf-8').write(pt)
-print('pt : seletor em %d pontos do header + overlay' % n_pt)
+# o portugues tambem vira subpasta (/pt/), para bater com a URL ja indexada.
+# O index.html da raiz segue sendo a FONTE de edicao, nao uma pagina servida.
+pt = traduzir_caminhos(base)
+pt, n_pt = injetar_comuns(pt, 'pt')
+os.makedirs(os.path.join(PUB, 'pt'), exist_ok=True)
+io.open(os.path.join(PUB, 'pt', 'index.html'), 'w', encoding='utf-8').write(pt)
+print('pt : pt/index.html  (seletor em %d ponto do header + overlay)' % n_pt)
 
 for lang in i18n.IDIOMAS:
     s = traduzir(base, lang)
