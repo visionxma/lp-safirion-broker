@@ -26,8 +26,11 @@ def seletor(lang):
     itens = ''
     for l in TODOS:
         ativo = ' aria-current="true"' if l == lang else ''
-        itens += ('<a class="kv-lang__op%s" href="%s%s" hreflang="%s" lang="%s"%s>%s</a>'
-                  % (' is-on' if l == lang else '', URL, i18n.CAMINHO[l],
+        # caminho relativo de proposito: funciona tanto no dominio de testes
+        # quanto no definitivo. Absoluto levava para o site antigo enquanto o
+        # DNS nao apontasse para ca.
+        itens += ('<a class="kv-lang__op%s" href="%s" hreflang="%s" lang="%s"%s>%s</a>'
+                  % (' is-on' if l == lang else '', i18n.CAMINHO[l],
                      i18n.META['lang_attr'][l], i18n.META['lang_attr'][l], ativo, i18n.NOMES[l]))
     return ('<div class="kv-lang"><button class="kv-lang__btn" type="button"'
             ' aria-haspopup="true" aria-expanded="false" aria-label="Idioma">'
