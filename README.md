@@ -40,10 +40,11 @@ wrangler deploy
 
 ## Notas
 
-- **Os preços do mural de ativos são ilustrativos**, não são cotações reais.
-  A série de cada sparkline é determinística (derivada do índice do ativo), então
-  o mural desenha igual em todo carregamento. Para dados reais, trocar o array
-  `MURAL` no bloco `kv-mural-js` por um fetch da API de mercado.
+- **O mural usa cotações reais**, vindas de `/api/cotacoes` e atualizadas a cada
+  minuto. Os valores no array `MURAL` são só o estado inicial, exibido enquanto
+  a requisição não volta e como reserva se a fonte falhar. Já as sparklines
+  continuam ilustrativas: são uma série determinística derivada do índice do
+  ativo, não o histórico real.
 - A base foi um export do Framer "de-hidratado" (sem JS remoto). Os blocos com
   `id="kv-*"` são código próprio — buscar por `kv-` para navegar.
 - O CSS do Framer é minificado e não comentável internamente.
@@ -111,3 +112,29 @@ no safirion.com. Movê-la para `/` criaria um 404 na página que tem histórico.
 
 ⚠️ `/legal/privacy/` aponta para a Política de Cookies por falta de um documento
 de privacidade nos materiais da Safirion. Substituir quando houver.
+
+## Camada de dados (`worker/index.js`)
+
+O site é estático, mas o Worker expõe dois endpoints com cache:
+
+| Rota | Fonte | Cache |
+|---|---|---|
+| `/api/cotacoes` | Yahoo Finance | 60 s |
+| `/api/noticias` | RSS do InfoMoney e Investing.com | 15 min |
+
+Nenhuma exige chave. O cache existe porque sem ele cada visita bateria na fonte.
+
+**Por que só o Yahoo para cotação:** CoinGecko, Binance e Frankfurter funcionam
+no terminal mas bloqueiam ou limitam IPs de datacenter — voltavam vazias em
+produção. O Yahoo foi a única que respondeu do Worker. É endpoint não oficial,
+então pode mudar sem aviso: cada símbolo é buscado isolado e uma falha não
+derruba os outros. Se um dia parar, o mural cai no estado inicial do array.
+
+**Notícias são curadoria, não republicação:** título, fonte e link para o
+original, com `rel="nofollow"`. Republicar matéria seria problema de direito
+autoral, e o Google prefere a fonte.
+
+⚠️ **Calendário econômico ficou de fora.** As fontes gratuitas devolvem 429 para
+IP de Worker (ForexFactory via faireconomy) ou encerraram a conta de teste
+(Trading Economics). Precisa de provedor com chave. Quando houver, o caminho é
+um cron gravando em KV — a rota não pode buscar por visita.

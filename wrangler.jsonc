@@ -1,15 +1,16 @@
 {
-  // Site 100% estático servido pelo Workers Static Assets: não há `main`,
-  // então não existe Worker rodando — a Cloudflare serve os arquivos direto.
-  //
-  // `directory` aponta para ./public/ de propósito: apontar para ./ subia
-  // o .git/ e os backups .bak-* junto, deixando-os acessíveis em produção.
+  // O site continua estático: o Worker existe para a camada /api/*, que serve
+  // cotações, calendário e notícias. Qualquer outra rota cai direto no binding
+  // de assets, sem custo de execução.
   "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
   "name": "lp-safirion-broker",
-  "compatibility_date": "2026-08-11",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-08-12",
   "assets": {
     "directory": "./public/",
+    "binding": "ASSETS",
     "not_found_handling": "404-page",
     "html_handling": "auto-trailing-slash"
-  }
+  },
+  "observability": { "enabled": true }
 }

@@ -81,6 +81,23 @@ article ul li::before{content:"";position:absolute;left:2px;top:11px;width:7px;h
 .aviso{margin-top:clamp(34px,5vw,48px);padding-top:22px;border-top:1px solid rgba(255,255,255,.08);
  color:#6f818f;font-size:13.5px;line-height:1.65}
 
+
+/* ---------- manchetes ---------- */
+.news{padding-bottom:clamp(40px,6vw,64px)}
+.news__cab{display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex-wrap:wrap;
+ margin:0 0 18px}
+.news__cab h2{font-size:clamp(19px,2.6vw,23px);font-weight:600;margin:0}
+.news__cab span{color:#6f818f;font-size:13px}
+.news__lista{display:grid;gap:1px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);
+ border-radius:16px;overflow:hidden}
+.news__item{display:block;padding:16px 18px;background:#0a1120;text-decoration:none;
+ transition:background .2s ease}
+.news__item:hover{background:#111a2b}
+.news__item b{display:block;font-size:15.5px;font-weight:500;color:#fff;line-height:1.4;margin-bottom:5px}
+.news__item i{font-style:normal;color:#4ba3f0;font-size:12.5px}
+.news__item i::after{content:" ↗";font-size:11px}
+.news__vazio{padding:18px;background:#0a1120;color:#6f818f;font-size:14.5px}
+
 /* ---------- lista ---------- */
 .lista{display:grid;gap:16px;padding-bottom:clamp(48px,7vw,80px)}
 .card{display:block;padding:clamp(22px,3vw,30px);border-radius:20px;border:1px solid rgba(255,255,255,.10);
@@ -98,6 +115,26 @@ footer a{color:#a1b8c3;text-decoration:none}
 footer a:hover{color:#fff}
 @media(max-width:560px){.top .in{padding:12px 18px}.top a.gh{display:none}}
 """
+
+
+NEWS = ('<section class="news"><div class="wrap">'
+        '<div class="news__cab"><h2>Mercado hoje</h2>'
+        '<span>Manchetes de fontes externas — o link leva ao original</span></div>'
+        '<div class="news__lista" id="news"><div class="news__vazio">Carregando…</div></div>'
+        '</div></section>'
+        '<script>(function(){'
+        'function q(t){var d=document.createElement("div");d.textContent=t;return d.innerHTML;}'
+        'fetch("/api/noticias").then(function(r){return r.ok?r.json():null;}).then(function(d){'
+        'var alvo=document.getElementById("news");if(!alvo)return;'
+        'var n=(d&&d.noticias)||[];'
+        'if(!n.length){alvo.innerHTML=\'<div class="news__vazio">Sem manchetes no momento.</div>\';return;}'
+        'alvo.innerHTML=n.slice(0,8).map(function(x){'
+        # rel=nofollow: e link para fora; nao passamos autoridade nem parecemos
+        # troca de links. target=_blank mantem o visitante no site.
+        'return \'<a class="news__item" href="\'+q(x.link)+\'" target="_blank" rel="noopener nofollow">\''
+        '+\'<b>\'+q(x.titulo)+\'</b><i>\'+q(x.fonte)+\'</i></a>\';}).join("");'
+        '}).catch(function(){});'
+        '})();</script>')
 
 
 def topo():
@@ -234,6 +271,7 @@ indice = (cabeca('Blog da Safirion — saque, spread, regulamentação e primeir
             '<p class="meta">Saque, spread, regulamentação e primeiros passos — '
             'explicados sem jargão.</p></div></div>'
           + '<div class="wrap"><div class="lista">' + cards + '</div></div>'
+          + NEWS
           + rodape() + '</body></html>')
 io.open(os.path.join(BLOG, 'index.html'), 'w', encoding='utf-8').write(indice)
 print('  /blog/  (%.1f KB, %d artigos)' % (len(indice.encode()) / 1024, len(ARTIGOS)))
