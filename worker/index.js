@@ -131,6 +131,11 @@ function tag(bloco, nome) {
     .replace(/&#39;|&apos;/g, "'")
     .replace(/&lt;/g, '<')
     .replace(/&gt;/g, '>')
+    /* entidades numéricas: os feeds usam &#8216; e afins para aspas tipográficas,
+       que apareciam cruas no título */
+    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(+n))
+    .replace(/&#x([0-9a-f]+);/gi, (_, n) => String.fromCharCode(parseInt(n, 16)))
+    .replace(/&\w+;/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
 }
