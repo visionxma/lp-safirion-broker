@@ -98,15 +98,45 @@ article ul li::before{content:"";position:absolute;left:2px;top:11px;width:7px;h
 .news__item i::after{content:" ↗";font-size:11px}
 .news__vazio{padding:18px;background:#0a1120;color:#6f818f;font-size:14.5px}
 
+/* ---------- capa do artigo ---------- */
+.capa{max-width:980px;margin:0 auto clamp(30px,4vw,44px);padding:0 24px}
+.capa img{width:100%;border-radius:20px;border:1px solid rgba(255,255,255,.10);
+ box-shadow:0 26px 60px rgba(0,0,0,.5)}
+
 /* ---------- lista ---------- */
-.lista{display:grid;gap:16px;padding-bottom:clamp(48px,7vw,80px)}
-.card{display:block;padding:clamp(22px,3vw,30px);border-radius:20px;border:1px solid rgba(255,255,255,.10);
+.lista{display:grid;gap:clamp(18px,2.4vw,26px);padding-bottom:clamp(48px,7vw,80px)}
+.card{display:block;border-radius:20px;border:1px solid rgba(255,255,255,.10);overflow:hidden;
  background:linear-gradient(155deg,#111a2b 0%,#0a1120 62%,#060b18 100%);text-decoration:none;
  transition:border-color .3s ease,transform .3s cubic-bezier(.2,.8,.2,1)}
 .card:hover{border-color:rgba(35,137,230,.34);transform:translateY(-3px)}
-.card h2{font-size:clamp(19px,2.6vw,23px);font-weight:600;line-height:1.26;margin:12px 0 10px;color:#fff}
-.card p{color:#a1b8c3;font-size:15.5px;margin:0 0 14px}
-.card .meta{font-size:13.5px}
+.card__img{position:relative;aspect-ratio:16/9;overflow:hidden;background:#0a1120}
+.card__img img{width:100%;height:100%;object-fit:cover;display:block;
+ transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.card:hover .card__img img{transform:scale(1.03)}
+.card__txt{padding:clamp(20px,2.6vw,26px)}
+.card h2{font-size:clamp(18px,2.4vw,22px);font-weight:600;line-height:1.26;margin:0 0 9px;color:#fff}
+.card p{color:#a1b8c3;font-size:15px;margin:0 0 13px;line-height:1.55}
+.card .meta{font-size:13px}
+/* o primeiro card ganha destaque de capa */
+@media(min-width:720px){
+  .lista{grid-template-columns:1fr 1fr}
+  .lista .card:first-child{grid-column:1/-1;display:grid;grid-template-columns:1.15fr 1fr;align-items:stretch}
+  .lista .card:first-child .card__img{aspect-ratio:auto;height:100%;min-height:250px}
+  .lista .card:first-child .card__txt{padding:clamp(26px,3vw,36px);align-self:center}
+  .lista .card:first-child h2{font-size:clamp(22px,2.9vw,28px)}
+  .lista .card:first-child p{font-size:16px}
+}
+
+/* ---------- leia tambem ---------- */
+.mais{border-top:1px solid rgba(255,255,255,.08);padding:clamp(34px,5vw,48px) 0 clamp(40px,6vw,64px)}
+.mais h2{font-size:19px;font-weight:600;margin:0 0 18px}
+.mais__grid{display:grid;gap:14px}
+@media(min-width:680px){.mais__grid{grid-template-columns:repeat(3,1fr)}}
+.mais__i{display:block;text-decoration:none;border-radius:14px;overflow:hidden;
+ border:1px solid rgba(255,255,255,.10);background:#0a1120;transition:border-color .3s ease}
+.mais__i:hover{border-color:rgba(35,137,230,.34)}
+.mais__i img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+.mais__i span{display:block;padding:13px 15px;color:#fff;font-size:14.5px;font-weight:500;line-height:1.35}
 
 /* ---------- rodape ---------- */
 footer{border-top:1px solid rgba(255,255,255,.08);padding:40px 0;color:#6f818f;font-size:13.5px}
@@ -155,7 +185,7 @@ def rodape():
             '</div></footer>')
 
 
-def cabeca(titulo, desc, canonical, extra=''):
+def cabeca(titulo, desc, canonical, extra='', imagem=None):
     return ('<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">'
             '<meta name="viewport" content="width=device-width, initial-scale=1">'
             '<title>%s</title>'
@@ -170,13 +200,14 @@ def cabeca(titulo, desc, canonical, extra=''):
             '<meta property="og:title" content="%s">'
             '<meta property="og:description" content="%s">'
             '<meta property="og:url" content="%s">'
-            '<meta property="og:image" content="%s/_ext/img/og-image.jpg">'
+            '<meta property="og:image" content="%s">'
             '<meta name="twitter:card" content="summary_large_image">'
             '<link rel="preload" as="font" type="font/woff2" crossorigin'
             ' href="/_ext/fonts/MazzardM-Regular.woff2">'
             '<style>%s</style>%s</head><body>'
             % (html.escape(titulo), html.escape(desc), canonical,
-               html.escape(titulo), html.escape(desc), canonical, URL, CSS, extra))
+               html.escape(titulo), html.escape(desc), canonical,
+               imagem or (URL + '/_ext/img/og-image.jpg'), CSS, extra))
 
 
 # ---------------------------------------------------------------------------
@@ -197,6 +228,19 @@ def render_corpo(a):
     return out
 
 
+def leia_tambem(atual):
+    """Links internos entre artigos: ajuda o leitor e distribui autoridade."""
+    outros = [x for x in ARTIGOS if x['slug'] != atual['slug']][:3]
+    if not outros:
+        return ''
+    itens = ''.join(
+        '<a class="mais__i" href="/blog/%s/">'
+        '<img src="/_ext/img/blog/%s.webp" alt="" width="1200" height="675" loading="lazy">'
+        '<span>%s</span></a>' % (x['slug'], x['slug'], x['titulo']) for x in outros)
+    return ('<section class="mais"><div class="wrap"><h2>Leia também</h2>'
+            '<div class="mais__grid">%s</div></div></section>' % itens)
+
+
 def ld_artigo(a, canonical):
     return ('<script type="application/ld+json">%s</script>' % json.dumps({
         "@context": "https://schema.org",
@@ -207,7 +251,7 @@ def ld_artigo(a, canonical):
         "dateModified": a['data'],
         "inLanguage": "pt-BR",
         "mainEntityOfPage": {"@type": "WebPage", "@id": canonical},
-        "image": URL + "/_ext/img/og-image.jpg",
+        "image": URL + "/_ext/img/blog/" + a["slug"] + ".webp",
         "author": {"@type": "Organization", "name": "Safirion", "url": URL + "/"},
         "publisher": {"@type": "Organization", "name": "Safirion",
                       "logo": {"@type": "ImageObject",
@@ -239,7 +283,8 @@ for a in ARTIGOS:
     canonical = '%s/blog/%s/' % (URL, a['slug'])
     pasta = os.path.join(BLOG, a['slug'])
     os.makedirs(pasta, exist_ok=True)
-    doc = (cabeca(a['seo_titulo'], a['seo_desc'], canonical, ld_artigo(a, canonical))
+    doc = (cabeca(a['seo_titulo'], a['seo_desc'], canonical, ld_artigo(a, canonical),
+                  '%s/_ext/img/blog/%s.webp' % (URL, a['slug']))
            + topo()
            + '<div class="head"><div class="wrap">'
            + '<span class="tag">%s</span>' % a['tag']
@@ -247,18 +292,24 @@ for a in ARTIGOS:
            + '<p class="meta"><time datetime="%s">%s</time><i>·</i><span>%d min de leitura</span></p>'
              % (a['data'], data_extenso(a['data']), a['minutos'])
            + '</div></div>'
+           + ('<div class="capa"><img src="/_ext/img/blog/%s.webp" alt="" width="1200" height="675"'
+              ' fetchpriority="high" decoding="async"></div>' % a['slug'])
            + '<article><div class="wrap">' + render_corpo(a)
            + '<p class="aviso"><strong>Aviso de risco:</strong> %s</p>' % AVISO
-           + '</div></article>' + rodape() + '</body></html>')
+           + '</div></article>'
+           + leia_tambem(a) + rodape() + '</body></html>')
     io.open(os.path.join(pasta, 'index.html'), 'w', encoding='utf-8').write(doc)
     print('  /blog/%s/  (%.1f KB)' % (a['slug'], len(doc.encode()) / 1024))
 
 cards = ''
 for a in ARTIGOS:
-    cards += ('<a class="card" href="/blog/%s/"><span class="tag">%s</span>'
+    cards += ('<a class="card" href="/blog/%s/">'
+              '<span class="card__img"><img src="/_ext/img/blog/%s.webp" alt="" '
+              'width="1200" height="675" loading="lazy" decoding="async"></span>'
+              '<span class="card__txt"><span class="tag">%s</span>'
               '<h2>%s</h2><p>%s</p>'
-              '<p class="meta"><time datetime="%s">%s</time><i>·</i><span>%d min</span></p></a>'
-              % (a['slug'], a['tag'], a['titulo'], a['resumo'], a['data'],
+              '<p class="meta"><time datetime="%s">%s</time><i>·</i><span>%d min</span></p></span></a>'
+              % (a['slug'], a['slug'], a['tag'], a['titulo'], a['resumo'], a['data'],
                  data_extenso(a['data']), a['minutos']))
 
 indice = (cabeca('Blog da Safirion — saque, spread, regulamentação e primeiros passos',

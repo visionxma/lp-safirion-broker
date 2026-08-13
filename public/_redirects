@@ -5,10 +5,8 @@
 # mas o publico daqui e Brasil)
 /                     /pt/                                  301
 
-# paginas legais do site antigo -> os documentos oficiais correspondentes
-/terms.html           https://fsms.trade.safirion.com/storage/public/d5/j3/m5fvhhge5gv5vac0/Safirion%20General%20Terms%20and%20Conditions.pdf   301
-/legal/terms/         https://fsms.trade.safirion.com/storage/public/d5/j3/m5fvhhge5gv5vac0/Safirion%20General%20Terms%20and%20Conditions.pdf   301
-/legal/privacy/       https://fsms.trade.safirion.com/storage/public/d5/j3/m58ggnfho3e37peg/Safirion%20Cookies%20Policy.pdf                     301
+# as páginas legais foram trazidas do site antigo e vivem aqui agora;
+# antes redirecionavam para os PDFs, o que perdia o conteúdo indexável
 
 # variantes sem barra final
 /pt                   /pt/                                  301

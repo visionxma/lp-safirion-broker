@@ -138,3 +138,34 @@ autoral, e o Google prefere a fonte.
 IP de Worker (ForexFactory via faireconomy) ou encerraram a conta de teste
 (Trading Economics). Precisa de provedor com chave. Quando houver, o caminho é
 um cron gravando em KV — a rota não pode buscar por visita.
+
+## Capas do blog (`scripts/capas.py`)
+
+```sh
+python3 scripts/capas.py public http://127.0.0.1:8125
+```
+
+Desenha a capa de cada artigo em HTML/SVG e rasteriza com o Chrome headless.
+Sem banco de imagens: evita custo de licença e a mesma foto genérica que todo
+site de corretora usa. O motivo conversa com o assunto — velas para spread,
+escudo para regulamentação, barras para capital.
+
+**As capas não têm texto.** O título já está no HTML; embutido na imagem ele
+seria cortado em qualquer recorte e apareceria duas vezes no card. Cada uma
+pesa 8–16 KB.
+
+Precisa do servidor local rodando, porque a capa carrega a logo e as fontes
+por caminho absoluto.
+
+## Páginas legais
+
+`/legal/terms/`, `/legal/privacy/` e `/terms.html` foram trazidas do safirion.com
+antigo e reestilizadas no sistema visual do blog. O texto legal foi preservado
+sem alteração; só o invólucro mudou. Antes redirecionavam para os PDFs, o que
+jogava fora conteúdo indexável (13.272 e 7.153 palavras).
+
+⚠️ **Divergência societária a resolver.** O rodapé do safirion.com diz
+SUNSET HORIZON LLC (Reg. L 22994); as páginas legais e o PDF oficial de Termos
+dizem THUNDER FLASH LLC (Reg. L 22853). São empresas e registros diferentes —
+o rodapé deste site ainda usa SUNSET HORIZON, copiado do site antigo. Precisa de
+confirmação de qual é a entidade vigente.
