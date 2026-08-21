@@ -103,7 +103,11 @@ def hreflang(lang):
     for l in TODOS:
         out += '<link rel="alternate" hreflang="%s" href="%s%s">' % (
             i18n.META['lang_attr'][l], URL, i18n.CAMINHO[l])
-    out += '<link rel="alternate" hreflang="x-default" href="%s/">' % URL
+    # x-default aponta para /pt/, nao para a raiz: a raiz responde 301 e mandar
+    # o Google para um redirecionamento gasta rastreio a toa. O sitemap ja fazia
+    # assim; era o HTML que divergia.
+    out += '<link rel="alternate" hreflang="x-default" href="%s%s">' % (
+        URL, i18n.CAMINHO['pt'])
     return out
 
 
@@ -163,6 +167,57 @@ def traduzir(s, lang):
     return s
 
 
+def ajustar_jsonld(s, lang):
+    """Poe a pagina no dominio real e separa as entidades do JSON-LD por idioma.
+
+    A fonte carrega o dominio de teste do Worker: nos @id do grafo e tambem em
+    og:image, twitter:image e og:image:secure_url. Pior que o dominio: WebPage,
+    FAQPage e BreadcrumbList nasciam ancorados na raiz, entao os quatro idiomas
+    declaravam a MESMA pagina. Aqui cada um passa a declarar a sua; Organization
+    e WebSite continuam na raiz, que e onde devem ficar — sao do site, nao da
+    pagina.
+
+    A origem antiga sai do proprio grafo, e nao de uma constante: assim trocar o
+    dominio na fonte nao quebra isto em silencio.
+    """
+    marca = '<script type="application/ld+json">'
+    ini = s.find(marca + '{"@context"')
+    if ini < 0:
+        return s
+    a = ini + len(marca)
+    b = s.find('</script>', a)
+    try:
+        grafo = json.loads(s[a:b])
+    except ValueError:
+        return s
+    if '@graph' not in grafo:
+        return s
+
+    org = next((e for e in grafo['@graph'] if '@id' in e and '#organization' in e['@id']), None)
+    if not org:
+        return s
+    origem = org['@id'].split('#')[0].rstrip('/')
+    if origem == URL:
+        return s
+
+    # o dominio velho aparece tambem em og:image e twitter:image, fora do grafo
+    s = s.replace(origem, URL)
+    a = s.find(marca + '{"@context"') + len(marca)   # a troca encurtou o texto
+    b = s.find('</script>', a)
+    grafo = json.loads(s[a:b])
+    pagina = URL + i18n.CAMINHO[lang]
+    DA_PAGINA = {'WebPage', 'FAQPage', 'BreadcrumbList'}
+    for e in grafo['@graph']:
+        tipos = e.get('@type', '')
+        tipos = {tipos} if isinstance(tipos, str) else set(tipos)
+        if tipos & DA_PAGINA:
+            if '@id' in e and '#' in e['@id']:
+                e['@id'] = pagina + '#' + e['@id'].split('#', 1)[1]
+            if 'url' in e:
+                e['url'] = pagina
+    return s[:a] + json.dumps(grafo, ensure_ascii=False) + s[b:]
+
+
 def canonicalizar(s, lang):
     s = re.sub(r'<link rel="canonical" href="[^"]*">',
                '<link rel="canonical" href="%s%s">' % (URL, i18n.CAMINHO[lang]), s)
@@ -186,6 +241,7 @@ def injetar_comuns(s, lang):
     """CSS, JS, hreflang e o seletor — iguais em todos os idiomas."""
     s = limpar(s)
     s = canonicalizar(s, lang)
+    s = ajustar_jsonld(s, lang)
     s = s.replace('</head>', CSS_LANG + hreflang(lang) + '</head>', 1)
     s = s.replace('</body>', JS_LANG + '</body>', 1)
 

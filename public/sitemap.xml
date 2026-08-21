@@ -3,6 +3,7 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://safirion.com/pt/</loc>
+    <lastmod>2026-08-21</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://safirion.com/pt/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://safirion.com/en/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://safirion.com/es/"/>
@@ -13,6 +14,7 @@
   </url>
   <url>
     <loc>https://safirion.com/en/</loc>
+    <lastmod>2026-08-21</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://safirion.com/pt/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://safirion.com/en/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://safirion.com/es/"/>
@@ -23,6 +25,7 @@
   </url>
   <url>
     <loc>https://safirion.com/es/</loc>
+    <lastmod>2026-08-21</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://safirion.com/pt/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://safirion.com/en/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://safirion.com/es/"/>
@@ -33,6 +36,7 @@
   </url>
   <url>
     <loc>https://safirion.com/fr/</loc>
+    <lastmod>2026-08-21</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://safirion.com/pt/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://safirion.com/en/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://safirion.com/es/"/>
@@ -43,6 +47,7 @@
   </url>
   <url>
     <loc>https://safirion.com/blog/</loc>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -72,16 +77,19 @@
   </url>
   <url>
     <loc>https://safirion.com/legal/terms/</loc>
+    <lastmod>2026-08-13</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://safirion.com/legal/privacy/</loc>
+    <lastmod>2026-08-13</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://safirion.com/terms.html</loc>
+    <lastmod>2026-08-13</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
