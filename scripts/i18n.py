@@ -270,10 +270,10 @@ T = {
         'en': 'Step by step to create your account:',
         'es': 'Paso a paso para crear tu cuenta:',
         'fr': 'Étape par étape pour créer votre compte :'},
-    'Acesse a página de cadastro da Safirion Broker:': {
-        'en': 'Go to the Safirion Broker sign-up page:',
-        'es': 'Accede a la página de registro de Safirion Broker:',
-        'fr': "Accédez à la page d'inscription de Safirion Broker :"},
+    'Acesse a página de cadastro da Safirion Broker': {
+        'en': 'Go to the Safirion Broker sign-up page',
+        'es': 'Accede a la página de registro de Safirion Broker',
+        'fr': "Accédez à la page d'inscription de Safirion Broker"},
     # cita o rotulo exato do botao, que vem do catalogo logo acima
     'Clique em “Abrir minha conta na Safirion”;': {
         'en': 'Click “Open my Safirion account”;',

@@ -4,6 +4,13 @@ node_modules/
 
 # backups locais do processo de rebranding (contêm conteúdo da Kirvus)
 index.html.bak-*
+# paginas de sonda que eu crio em public/ para medir coisa no navegador.
+# O padrao antigo listava prefixos um a um (_s*, _v*...) e um _m1.html
+# escapou e foi parar num commit. Nenhum arquivo legitimo do site comeca
+# com _ e termina em .html — os que comecam com _ (_headers, _redirects,
+# _ext/) nao tem essa extensao.
+public/_*.html
+
 _probe.html
 _shot*.html
 _slice-*.html
