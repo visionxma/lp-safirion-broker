@@ -83,6 +83,18 @@ CSS_LANG = ('<!-- [kv] Seletor de idioma. -->'
             '@media(min-width:1200px) and (max-width:1439px){'
             '.framer-1419ah .framer-dztj6u p{font-size:13px!important}'
             '.framer-1419ah{gap:2px!important;max-width:calc(100% - 560px)!important}}'
+            # De 1200 a 1279 a barra nao comporta logo + menu + botoes: o menu
+            # em portugues pede 629px e o teto acima da 554, entao os itens
+            # vazavam da caixa e caiam por cima do seletor. Aqui o seletor vira
+            # so o globo (o rotulo PT sai, e o globo ja diz o que e) e o menu
+            # aperta o suficiente para caber no que sobra.
+            '@media(min-width:1200px) and (max-width:1279.98px){'
+            '.kv-lang__btn b{display:none}'
+            '.kv-lang__btn{padding:8px 9px}'
+            '.kv-lang{margin-right:6px}'
+            '.framer-1419ah{gap:0!important;max-width:calc(100% - 505px)!important}'
+            '.framer-1419ah .framer-oZlM5{padding:6px 4px!important}'
+            '.framer-1419ah .framer-dztj6u p{font-size:12.5px!important}}'
             '@media(max-width:1199px){.framer-tPXQv .kv-lang{display:none}}'
             '</style>')
 
