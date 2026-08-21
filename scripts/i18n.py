@@ -29,26 +29,26 @@ T = {
     'Comparativo':  {'en': 'Comparison',  'es': 'Comparativa', 'fr': 'Comparatif'},
     'Por que a Safirion': {
         'en': 'Why Safirion', 'es': 'Por qué Safirion', 'fr': 'Pourquoi Safirion'},
-    'Por que escolher a Safirion Broker?': {
-        'en': 'Why choose Safirion Broker?',
-        'es': '¿Por qué elegir Safirion Broker?',
-        'fr': 'Pourquoi choisir Safirion Broker ?'},
-    'A Safirion Broker foi criada para quem busca mais do que uma plataforma de negociação — ela entrega performance, segurança e total controle na ponta dos seus dedos.': {
-        'en': 'Safirion Broker was built for those who want more than a trading platform — it delivers performance, security and full control at your fingertips.',
-        'es': 'Safirion Broker fue creada para quienes buscan más que una plataforma de negociación: entrega rendimiento, seguridad y control total en la punta de tus dedos.',
-        'fr': "Safirion Broker a été créée pour ceux qui cherchent plus qu'une plateforme de négociation — elle offre performance, sécurité et contrôle total au bout des doigts."},
+    'O que a Safirion faz diferente': {
+        'en': "What Safirion does differently",
+        'es': "Lo que Safirion hace diferente",
+        'fr': "Ce que Safirion fait différemment"},
+    'A Safirion foi construída para quem já perdeu entrada por travamento e saque por burocracia. Execução em 0,12s e spread fixo garantido por contrato — inclusive nos dias de maior volatilidade.': {
+        'en': "Safirion was built for traders who have lost an entry to a frozen platform and a withdrawal to red tape. Execution in 0.12s and a fixed spread guaranteed by contract — even on the most volatile days.",
+        'es': "Safirion fue construida para quien ya perdio una entrada por bloqueo y un retiro por burocracia. Ejecucion en 0,12s y spread fijo garantizado por contrato, incluso en los dias de mayor volatilidad.",
+        'fr': "Safirion a ete construite pour ceux qui ont deja perdu une entree a cause d'un blocage et un retrait a cause de la paperasse. Execution en 0,12s et spread fixe garanti par contrat, meme les jours les plus volatils."},
     'Com tecnologia de última geração e uma operação totalmente automatizada, oferecemos um ambiente onde agilidade e proteção caminham juntas. Aqui, o usuário encontra suporte eficiente, interface simples de usar e transações realizadas com total transparência.': {
         'en': 'With cutting-edge technology and a fully automated operation, we offer an environment where speed and protection go hand in hand. Here you find efficient support, an interface that is simple to use and transactions carried out with complete transparency.',
         'es': 'Con tecnología de última generación y una operación totalmente automatizada, ofrecemos un entorno donde agilidad y protección caminan juntas. Aquí el usuario encuentra soporte eficiente, una interfaz simple de usar y transacciones realizadas con total transparencia.',
         'fr': "Avec une technologie de dernière génération et une opération entièrement automatisée, nous offrons un environnement où rapidité et protection avancent ensemble. L'utilisateur y trouve un support efficace, une interface simple à utiliser et des transactions réalisées en toute transparence."},
-    'Ao eliminar barreiras operacionais e otimizar processos, proporcionamos uma experiência fluida, confiável e acessível para todos os perfis de investidor.': {
-        'en': 'By removing operational barriers and streamlining processes, we provide a smooth, reliable and accessible experience for every investor profile.',
-        'es': 'Al eliminar barreras operativas y optimizar procesos, proporcionamos una experiencia fluida, confiable y accesible para todos los perfiles de inversor.',
-        'fr': "En supprimant les barrières opérationnelles et en optimisant les processus, nous offrons une expérience fluide, fiable et accessible à tous les profils d'investisseur."},
-    'Seja você um iniciante ou um operador experiente, a Safirion Broker é a escolha certa para quem valoriza autonomia, eficiência e resultados consistentes no universo financeiro digital.': {
-        'en': 'Whether you are a beginner or an experienced trader, Safirion Broker is the right choice for anyone who values autonomy, efficiency and consistent results in the digital financial world.',
-        'es': 'Ya seas principiante u operador experimentado, Safirion Broker es la elección correcta para quien valora autonomía, eficiencia y resultados consistentes en el universo financiero digital.',
-        'fr': "Que vous soyez débutant ou trader expérimenté, Safirion Broker est le bon choix pour qui valorise autonomie, efficacité et résultats constants dans l'univers financier numérique."},
+    'Sem limite diário de saque e sem pedido parado em análise: 100% das retiradas dos últimos seis meses saíram em menos de 24 horas.': {
+        'en': "No daily withdrawal cap and no request stuck in review: 100% of withdrawals in the last six months cleared in under 24 hours.",
+        'es': "Sin limite diario de retiro y sin solicitudes detenidas en revision: el 100% de los retiros de los ultimos seis meses salio en menos de 24 horas.",
+        'fr': "Aucun plafond quotidien de retrait et aucune demande bloquee en revision : 100 % des retraits des six derniers mois ont ete traites en moins de 24 heures."},
+    'Mais de 130 ativos entre Forex, ações, índices, commodities e cripto na mesma tela — você amplia a operação sem trocar de corretora.': {
+        'en': "More than 130 assets across Forex, stocks, indices, commodities and crypto on one screen — you scale up without changing brokers.",
+        'es': "Mas de 130 activos entre Forex, acciones, indices, materias primas y cripto en una sola pantalla: creces sin cambiar de broker.",
+        'fr': "Plus de 130 actifs en Forex, actions, indices, matieres premieres et crypto sur un seul ecran : vous montez en puissance sans changer de courtier."},
     'Segurança':    {'en': 'Security',    'es': 'Seguridad',   'fr': 'Sécurité'},
     'Entrar':       {'en': 'Log in',      'es': 'Iniciar sesión', 'fr': 'Connexion'},
     'Comece Agora': {'en': 'Get Started', 'es': 'Empezar Ahora',  'fr': 'Commencer'},
@@ -258,18 +258,18 @@ T = {
     'Como se cadastrar na': {
         'en': 'How to sign up with', 'es': 'Cómo registrarse en',
         'fr': "Comment s'inscrire sur"},
-    'O processo de cadastro na Safirion Broker foi desenvolvido para ser rápido, intuitivo e totalmente seguro.': {
-        'en': 'The Safirion Broker sign-up process was designed to be fast, intuitive and completely secure.',
-        'es': 'El proceso de registro en Safirion Broker fue diseñado para ser rápido, intuitivo y totalmente seguro.',
-        'fr': "Le processus d'inscription chez Safirion Broker a été conçu pour être rapide, intuitif et totalement sûr."},
-    'Em apenas alguns passos, você cria sua conta e já pode começar a operar com confiança e autonomia.': {
-        'en': 'In just a few steps you create your account and can start trading with confidence and autonomy.',
-        'es': 'En solo unos pasos creas tu cuenta y ya puedes empezar a operar con confianza y autonomía.',
-        'fr': "En quelques étapes seulement, vous créez votre compte et pouvez commencer à trader en toute confiance et autonomie."},
-    'Passo a passo para criar sua conta:': {
-        'en': 'Step by step to create your account:',
-        'es': 'Paso a paso para crear tu cuenta:',
-        'fr': 'Étape par étape pour créer votre compte :'},
+    'Abrir conta na Safirion leva cerca de dois minutos e pede seis campos.': {
+        'en': "Opening a Safirion account takes about two minutes and asks for six fields.",
+        'es': "Abrir una cuenta en Safirion toma unos dos minutos y pide seis campos.",
+        'fr': "Ouvrir un compte Safirion prend environ deux minutes et demande six champs."},
+    'A verificação de documentos vem depois e não bloqueia o primeiro acesso à plataforma.': {
+        'en': "Document verification comes later and does not block your first access to the platform.",
+        'es': "La verificacion de documentos viene despues y no bloquea el primer acceso a la plataforma.",
+        'fr': "La verification des documents vient ensuite et ne bloque pas le premier acces a la plateforme."},
+    'O que a Safirion pede no cadastro': {
+        'en': "What Safirion asks for at sign-up",
+        'es': "Lo que Safirion pide en el registro",
+        'fr': "Ce que Safirion demande a l'inscription"},
     'Acesse a página de cadastro da Safirion Broker': {
         'en': 'Go to the Safirion Broker sign-up page',
         'es': 'Accede a la página de registro de Safirion Broker',
@@ -279,30 +279,30 @@ T = {
         'en': 'Click “Open my Safirion account”;',
         'es': 'Haz clic en “Abrir mi cuenta en Safirion”;',
         'fr': 'Cliquez sur « Ouvrir mon compte Safirion » ;'},
-    'Preencha seus dados pessoais no formulário de registro;': {
-        'en': 'Fill in your personal details on the registration form;',
-        'es': 'Completa tus datos personales en el formulario de registro;',
-        'fr': "Renseignez vos données personnelles dans le formulaire d'inscription ;"},
-    'Crie uma senha forte e aceite os termos de uso;': {
-        'en': 'Create a strong password and accept the terms of use;',
-        'es': 'Crea una contraseña segura y acepta los términos de uso;',
-        'fr': "Créez un mot de passe fort et acceptez les conditions d'utilisation ;"},
-    'Confirme o cadastro por e-mail;': {
-        'en': 'Confirm your registration by email;',
-        'es': 'Confirma el registro por correo electrónico;',
-        'fr': 'Confirmez votre inscription par e-mail ;'},
-    'Faça login e explore a plataforma.': {
-        'en': 'Log in and explore the platform.',
-        'es': 'Inicia sesión y explora la plataforma.',
-        'fr': 'Connectez-vous et explorez la plateforme.'},
-    'Pronto! Seu acesso está liberado.': {
-        'en': 'Done! Your access is live.',
-        'es': '¡Listo! Tu acceso está activo.',
-        'fr': 'Voilà ! Votre accès est ouvert.'},
-    'Agora é só aproveitar as oportunidades e operar com liberdade e segurança na Safirion Broker.': {
-        'en': 'Now just take the opportunities and trade freely and safely with Safirion Broker.',
-        'es': 'Ahora solo aprovecha las oportunidades y opera con libertad y seguridad en Safirion Broker.',
-        'fr': "Il ne reste qu'à saisir les opportunités et trader librement et en sécurité chez Safirion Broker."},
+    'Informe nome, sobrenome e país de residência;': {
+        'en': "Enter your first name, last name and country of residence;",
+        'es': "Indica nombre, apellido y pais de residencia;",
+        'fr': "Indiquez prenom, nom et pays de residence ;"},
+    'Defina a senha e confirme os Termos e Condições;': {
+        'en': "Set your password and confirm the Terms and Conditions;",
+        'es': "Define la contrasena y confirma los Terminos y Condiciones;",
+        'fr': "Definissez le mot de passe et confirmez les Conditions Generales ;"},
+    'Valide o e-mail que a Safirion enviar;': {
+        'en': "Validate the email Safirion sends you;",
+        'es': "Valida el correo que Safirion te envie;",
+        'fr': "Validez l'e-mail envoye par Safirion ;"},
+    'Entre na conta e conheça a plataforma.': {
+        'en': "Log in and get to know the platform.",
+        'es': "Inicia sesion y conoce la plataforma.",
+        'fr': "Connectez-vous et decouvrez la plateforme."},
+    'Feito — a conta está ativa.': {
+        'en': "Done — your account is live.",
+        'es': "Listo: la cuenta esta activa.",
+        'fr': "Termine : le compte est actif."},
+    'A partir daí você opera Forex, ações, índices, commodities e cripto na mesma plataforma.': {
+        'en': "From there you trade Forex, stocks, indices, commodities and crypto on the same platform.",
+        'es': "A partir de ahi operas Forex, acciones, indices, materias primas y cripto en la misma plataforma.",
+        'fr': "A partir de la, vous tradez Forex, actions, indices, matieres premieres et crypto sur la meme plateforme."},
     # -------------------------------------------------------------- rodape
     'Safirion é a plataforma de trading profissional que combina velocidade,\n      segurança e tecnologia de ponta.': {
         'en': 'Safirion is the professional trading platform that combines speed,\n      security and cutting-edge technology.',
@@ -344,26 +344,26 @@ T = {
 # Respostas do FAQ (objeto ANS do kv-faq-js e o FAQPage do JSON-LD)
 # ---------------------------------------------------------------------------
 FAQ = {
-    'Qual o saque e depósito mínimo?': {
-        'pt': 'O valor mínimo pode variar, mas geralmente começa em R$50. Verifique na área de depósito para confirmar o valor exato.',
-        'en': 'The minimum amount may vary, but it usually starts at R$50. Check the deposit area to confirm the exact amount.',
-        'es': 'El importe mínimo puede variar, pero generalmente empieza en R$50. Consulta el área de depósito para confirmar el valor exacto.',
-        'fr': "Le montant minimum peut varier, mais il commence généralement à 50 R$. Vérifiez dans l'espace de dépôt pour confirmer le montant exact."},
-    'Posso tirar dinheiro quando eu quiser?': {
-        'pt': 'Sim. Basta solicitar o saque a qualquer momento dentro da plataforma.',
-        'en': 'Yes. Just request the withdrawal at any time inside the platform.',
-        'es': 'Sí. Basta con solicitar el retiro en cualquier momento dentro de la plataforma.',
-        'fr': "Oui. Il suffit de demander le retrait à tout moment depuis la plateforme."},
-    'Posso operar pelo celular?': {
-        'pt': 'Sim. A plataforma é compatível com navegadores móveis e também está disponível por app.',
-        'en': 'Yes. The platform works with mobile browsers and is also available as an app.',
-        'es': 'Sí. La plataforma es compatible con navegadores móviles y también está disponible por app.',
-        'fr': "Oui. La plateforme est compatible avec les navigateurs mobiles et est également disponible via une application."},
-    'Como abrir um chamado de suporte?': {
-        'pt': 'Acesse o menu “Ajuda” ou “Suporte” dentro do painel e envie sua solicitação.',
-        'en': 'Go to the “Help” or “Support” menu inside the dashboard and send your request.',
-        'es': 'Accede al menú “Ayuda” o “Soporte” dentro del panel y envía tu solicitud.',
-        'fr': "Accédez au menu « Aide » ou « Support » dans le tableau de bord et envoyez votre demande."},
+    'Quanto preciso para depositar e para sacar?': {
+        'pt': "Os valores mínimos mudam conforme o método de pagamento. O valor exato aparece na própria área de depósito, antes de você confirmar a operação.",
+        'en': "The minimums depend on the payment method. The exact figure appears in the deposit area itself, before you confirm.",
+        'es': "Los minimos dependen del metodo de pago. El importe exacto aparece en la propia area de deposito, antes de confirmar.",
+        'fr': "Les montants minimum dependent du moyen de paiement. Le montant exact s'affiche dans l'espace de depot, avant confirmation."},
+    'Existe carência ou limite para sacar?': {
+        'pt': "Não há carência nem limite diário. O pedido pode ser aberto a qualquer momento dentro da plataforma.",
+        'en': "There is no lock-up and no daily cap. You can open a request at any time inside the platform.",
+        'es': "No hay periodo de espera ni limite diario. La solicitud puede abrirse en cualquier momento dentro de la plataforma.",
+        'fr': "Il n'y a ni delai de blocage ni plafond quotidien. La demande peut etre ouverte a tout moment depuis la plateforme."},
+    'A plataforma funciona no celular?': {
+        'pt': "Sim. A mesma conta abre no navegador do celular e também no aplicativo.",
+        'en': "Yes. The same account opens in your mobile browser and in the app.",
+        'es': "Si. La misma cuenta abre en el navegador del movil y tambien en la aplicacion.",
+        'fr': "Oui. Le meme compte s'ouvre dans le navigateur mobile et dans l'application."},
+    'Como falo com o suporte?': {
+        'pt': "Pelo menu de suporte dentro do painel. O atendimento responde por chat, telefone e e-mail.",
+        'en': "Through the support menu inside the dashboard. The team answers by chat, phone and email.",
+        'es': "Por el menu de soporte dentro del panel. El equipo responde por chat, telefono y correo.",
+        'fr': "Par le menu support dans le tableau de bord. L'equipe repond par chat, telephone et e-mail."},
 }
 
 # ---------------------------------------------------------------------------
