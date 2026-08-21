@@ -27,6 +27,28 @@ T = {
     'Ao vivo':      {'en': 'Live',        'es': 'En vivo',     'fr': 'En direct'},
     'Mercados':     {'en': 'Markets',     'es': 'Mercados',    'fr': 'Marchés'},
     'Comparativo':  {'en': 'Comparison',  'es': 'Comparativa', 'fr': 'Comparatif'},
+    'Por que a Safirion': {
+        'en': 'Why Safirion', 'es': 'Por qué Safirion', 'fr': 'Pourquoi Safirion'},
+    'Por que escolher a Safirion Broker?': {
+        'en': 'Why choose Safirion Broker?',
+        'es': '¿Por qué elegir Safirion Broker?',
+        'fr': 'Pourquoi choisir Safirion Broker ?'},
+    'A Safirion Broker foi criada para quem busca mais do que uma plataforma de negociação — ela entrega performance, segurança e total controle na ponta dos seus dedos.': {
+        'en': 'Safirion Broker was built for those who want more than a trading platform — it delivers performance, security and full control at your fingertips.',
+        'es': 'Safirion Broker fue creada para quienes buscan más que una plataforma de negociación: entrega rendimiento, seguridad y control total en la punta de tus dedos.',
+        'fr': "Safirion Broker a été créée pour ceux qui cherchent plus qu'une plateforme de négociation — elle offre performance, sécurité et contrôle total au bout des doigts."},
+    'Com tecnologia de última geração e uma operação totalmente automatizada, oferecemos um ambiente onde agilidade e proteção caminham juntas. Aqui, o usuário encontra suporte eficiente, interface simples de usar e transações realizadas com total transparência.': {
+        'en': 'With cutting-edge technology and a fully automated operation, we offer an environment where speed and protection go hand in hand. Here you find efficient support, an interface that is simple to use and transactions carried out with complete transparency.',
+        'es': 'Con tecnología de última generación y una operación totalmente automatizada, ofrecemos un entorno donde agilidad y protección caminan juntas. Aquí el usuario encuentra soporte eficiente, una interfaz simple de usar y transacciones realizadas con total transparencia.',
+        'fr': "Avec une technologie de dernière génération et une opération entièrement automatisée, nous offrons un environnement où rapidité et protection avancent ensemble. L'utilisateur y trouve un support efficace, une interface simple à utiliser et des transactions réalisées en toute transparence."},
+    'Ao eliminar barreiras operacionais e otimizar processos, proporcionamos uma experiência fluida, confiável e acessível para todos os perfis de investidor.': {
+        'en': 'By removing operational barriers and streamlining processes, we provide a smooth, reliable and accessible experience for every investor profile.',
+        'es': 'Al eliminar barreras operativas y optimizar procesos, proporcionamos una experiencia fluida, confiable y accesible para todos los perfiles de inversor.',
+        'fr': "En supprimant les barrières opérationnelles et en optimisant les processus, nous offrons une expérience fluide, fiable et accessible à tous les profils d'investisseur."},
+    'Seja você um iniciante ou um operador experiente, a Safirion Broker é a escolha certa para quem valoriza autonomia, eficiência e resultados consistentes no universo financeiro digital.': {
+        'en': 'Whether you are a beginner or an experienced trader, Safirion Broker is the right choice for anyone who values autonomy, efficiency and consistent results in the digital financial world.',
+        'es': 'Ya seas principiante u operador experimentado, Safirion Broker es la elección correcta para quien valora autonomía, eficiencia y resultados consistentes en el universo financiero digital.',
+        'fr': "Que vous soyez débutant ou trader expérimenté, Safirion Broker est le bon choix pour qui valorise autonomie, efficacité et résultats constants dans l'univers financier numérique."},
     'Segurança':    {'en': 'Security',    'es': 'Seguridad',   'fr': 'Sécurité'},
     'Entrar':       {'en': 'Log in',      'es': 'Iniciar sesión', 'fr': 'Connexion'},
     'Comece Agora': {'en': 'Get Started', 'es': 'Empezar Ahora',  'fr': 'Commencer'},
