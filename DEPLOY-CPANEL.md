@@ -53,35 +53,81 @@ Cloudflare virou arquivo em `sys_get_temp_dir()`, e o `Promise.all` virou
 `curl_multi`. O `.htaccess` reescreve `/api/cotacoes` para `/api/cotacoes.php`,
 então a URL que o navegador vê continua a mesma.
 
-## Antes de subir, olhe o `public_html` atual
+## Como subir (extrair dentro do `public_html`)
 
-Pelo que vi no File Manager, há coisa de mais de um site ali. Categorizando:
+**Extrair um zip mescla, não substitui.** Arquivo que existe nos dois é
+sobrescrito; arquivo que só existe no servidor **fica**. Por isso a ordem
+importa.
 
-**Vai ser substituído:** `_ext/`, `blog/`, `en/`, `es/`, `fr/`, `legal/`,
-`pt/`, `404.html`.
+### 1. Faça backup primeiro
 
-**Não toque:** `cgi-bin/` — é do cPanel.
+No File Manager, entre em `public_html`, **Select All** → **Compress** →
+`backup-antes-safirion.zip`. Baixe o arquivo antes de continuar. Sem isso não
+há como voltar atrás.
 
-**⚠️ `api/` já existe.** A pasta nova traz três arquivos `.php`. Veja o que há
-na atual antes de sobrescrever: se o site antigo usava essa pasta para outra
-coisa, você perde.
+### 2. Apague o que vai ser trocado
+
+Antes de extrair, apague estas pastas e arquivos. Extrair por cima sem apagar
+deixa os arquivos do site antigo lá dentro, e eles continuam sendo servidos:
+
+```
+_ext/   blog/   en/   es/   fr/   legal/   pt/   404.html
+```
+
+**⚠️ `api/` é o único que não dá para eu decidir por você.** A pasta nova traz
+três `.php`. Olhe o que há na atual: se for do site antigo e nada mais usar,
+apague; se algo ainda depender, extraia por cima e confira depois.
 
 **Sobras do site antigo, que o site novo não usa:** `assets/`, `css/`, `js/`,
-`ziplanguage/`, `404.shtml`. Confirmei que nenhum arquivo do site novo aponta
-para elas. Mesmo assim, confira se nada externo depende antes de apagar.
+`ziplanguage/`, `404.shtml`. Verifiquei que nenhum arquivo do site novo aponta
+para elas — ele só pede `/_ext/`, `/blog/`, `/legal/`, `/pt/`, `/en/`, `/es/`,
+`/fr/` e os arquivos da raiz. Ainda assim, confira se nada externo depende.
 
-**Lixo de upload:** `__MACOSX/` e `__MACOSX.zip` (31,81 MB). São resíduo de zip
-feito no Mac, não servem para nada e ocupam espaço.
+**Lixo de upload:** `__MACOSX/` e `__MACOSX.zip` (31,81 MB). Resíduo de zip
+feito no Mac.
+
+**Não toque:** `cgi-bin/`, do cPanel.
+
+### 3. Suba e extraia
+
+Upload de `safirion-cpanel.zip` dentro de `public_html` → **Extract**. O zip não
+tem pasta-invólucro: o conteúdo cai direto na raiz, que é o que você quer.
+
+### 4. Ligue "Show Hidden Files"
+
+**Settings → Show Hidden Files (dotfiles).** Sem isso o File Manager não mostra
+os `.htaccess`, e são eles que fazem os redirects e os cabeçalhos funcionarem.
+Confirme que chegaram os três:
+
+```
+public_html/.htaccess
+public_html/_ext/.htaccess
+public_html/api/.htaccess
+```
+
+### 5. Apague o zip do servidor
+
+Deixá-lo lá expõe uma cópia do site inteiro em
+`safirion.com/safirion-cpanel.zip`.
 
 ## Verificar depois de subir
 
 ```sh
-curl -I  https://safirion.com/            # 301 para /pt/
-curl -I  https://safirion.com/pt          # 301 para /pt/
-curl -s  https://safirion.com/api/cotacoes | head -c 200
-curl -s  https://safirion.com/api/noticias | head -c 200
-curl -I  https://safirion.com/_ext/img/og-image.jpg   # Cache-Control de 1 ano
+curl -sI https://safirion.com/           | head -2   # 301 para /pt/
+curl -sI https://safirion.com/pt         | head -2   # 301 para /pt/
+curl -sI https://safirion.com/pt/        | head -2   # 200
+curl -sI https://safirion.com/nao-existe | head -2   # 404
+curl -sI https://safirion.com/_ext/img/og-image.jpg | grep -i cache   # 1 ano
+
+# o teste que mais importa: tem de vir JSON, nunca "<?php"
+curl -s https://safirion.com/api/cotacoes | head -c 120
+curl -s https://safirion.com/api/noticias | head -c 120
 ```
+
+Se `/api/cotacoes` responder com `<?php`, o PHP não está processando a pasta e o
+**código está sendo servido como texto**. Não há segredo ali dentro (as fontes
+não usam chave), mas apague a pasta `api/` na hora: o site continua de pé, só
+com o mural em valores fixos.
 
 ## Se o PHP não funcionar
 

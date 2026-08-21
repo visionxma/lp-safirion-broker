@@ -1,0 +1,17 @@
+# _http.php e um include, nao um endpoint: ninguem deve busca-lo pela URL.
+# Serve tambem de rede de seguranca — se o PHP estiver desligado, o Apache
+# serviria o arquivo como texto e o codigo apareceria na tela. Verificado num
+# Apache sem PHP: /api/cotacoes devolvia "<?php" em texto puro.
+<Files "_http.php">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</Files>
+
+# Sem PHP ativo nao ha o que fazer aqui pelo .htaccess: o teste real e abrir
+# /api/cotacoes depois de subir. Se vier "<?php" em vez de JSON, apague a pasta
+# api/ — o site continua de pe, so com o mural em valores fixos.
