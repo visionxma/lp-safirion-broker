@@ -1,0 +1,8 @@
+# Assets versionados por conteudo: cache longo, como no _headers do Cloudflare.
+# Fica aqui dentro em vez de um <If> no .htaccess da raiz porque assim funciona
+# em qualquer versao do Apache, sem depender de mod_rewrite nem de expressoes.
+<IfModule mod_headers.c>
+  Header set Cache-Control "public, max-age=31536000, immutable"
+  Header unset X-Content-Type-Options
+  Header set X-Content-Type-Options "nosniff"
+</IfModule>

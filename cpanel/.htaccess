@@ -1,0 +1,61 @@
+# =============================================================================
+#  Safirion — configuracao de Apache (cPanel)
+#
+#  Traduz para Apache o que no Cloudflare vinha de public/_redirects e
+#  public/_headers, arquivos que so o Cloudflare le. Nao suba aqueles dois:
+#  aqui eles nao fazem nada.
+# =============================================================================
+
+# ----------------------------------------------------------------- redirects
+# Vindos de _redirects, com os mesmos codigos 301. Preservam as URLs que o
+# safirion.com ja tem indexadas — sem isso viram 404 e o historico de busca
+# vai junto.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # O site chama /api/cotacoes e /api/noticias sem extensao, como no Worker.
+  # Reescrita interna: a URL vista pelo navegador continua a mesma.
+  RewriteRule ^api/(cotacoes|noticias)/?$ /api/$1.php [L]
+
+  # a raiz servia com canonical para /en/; aqui o publico e Brasil
+  RewriteRule ^$ /pt/ [R=301,L]
+
+  # variantes sem barra final
+  RewriteRule ^(pt|en|es|fr|blog)$ /$1/ [R=301,L]
+
+  # HTTPS: descomente DEPOIS de confirmar que o certificado esta ativo no
+  # cPanel. Ligar isto sem certificado deixa o site inacessivel.
+  # RewriteCond %{HTTPS} !=on
+  # RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+</IfModule>
+
+# ------------------------------------------------------------------- headers
+<IfModule mod_headers.c>
+  # O HTML precisa revalidar, senao uma atualizacao demora a chegar no visitante
+  <FilesMatch "\.(html|xml|txt)$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # HSTS: so depois que o HTTPS estiver funcionando e forcado acima.
+  # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+</IfModule>
+
+# --------------------------------------------------------------------- resto
+ErrorDocument 404 /404.html
+
+# O Apache tem MultiViews desligado por padrao em muitos cPanel, mas quando
+# esta ligado ele resolve /terms para /terms.html sozinho e cria uma segunda
+# URL para a mesma pagina. Desligar mantem uma URL so, que e a do sitemap.
+Options -MultiViews -Indexes
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml \
+    application/javascript application/json image/svg+xml
+</IfModule>
+
+AddType application/json .json
+AddType image/webp .webp
+AddType font/woff2 .woff2

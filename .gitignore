@@ -1,5 +1,9 @@
 .DS_Store
 .wrangler/
+
+# saida do scripts/cpanel.py — build, nao fonte
+dist-cpanel/
+safirion-cpanel.zip
 node_modules/
 
 # backups locais do processo de rebranding (contêm conteúdo da Kirvus)
