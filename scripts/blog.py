@@ -21,6 +21,19 @@ MESES = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho',
          'agosto', 'setembro', 'outubro', 'novembro', 'dezembro']
 
 
+CLARITY = (
+    '<!-- [kv] Microsoft Clarity: mapa de calor e gravacao de sessao. O script e\n'
+    '     async, entao nao entra no caminho critico da primeira pintura. -->\n'
+    '<script type="text/javascript" id="kv-clarity">\n'
+    '(function(c,l,a,r,i,t,y){\n'
+    '    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};\n'
+    '    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;\n'
+    '    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);\n'
+    '})(window, document, "clarity", "script", "y5wbsrw66p");\n'
+    '</script>\n'
+)
+
+
 def data_extenso(iso):
     a, m, d = iso.split('-')
     return '%d de %s de %s' % (int(d), MESES[int(m) - 1], a)
@@ -233,10 +246,11 @@ def cabeca(titulo, desc, canonical, extra='', imagem=None):
             '<meta name="twitter:card" content="summary_large_image">'
             '<link rel="preload" as="font" type="font/woff2" crossorigin'
             ' href="/_ext/fonts/MazzardM-Regular.woff2">'
-            '<style>%s</style>%s</head><body>'
+            '<style>%s</style>%s'
             % (html.escape(titulo), html.escape(desc), canonical,
                html.escape(titulo), html.escape(desc), canonical,
-               imagem or (URL + '/_ext/img/og-image.jpg'), CSS, extra))
+               imagem or (URL + '/_ext/img/og-image.jpg'), CSS, extra)
+            + CLARITY + '</head><body>')
 
 
 # ---------------------------------------------------------------------------

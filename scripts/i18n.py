@@ -129,7 +129,9 @@ T = {
         'en': '80+ pairs · spread from 0.1 pip',
         'es': '+80 pares · spread desde 0,1 pip',
         'fr': '+80 paires · spread dès 0,1 pip'},
+    # o selo "Disponivel" virou CTA; a traducao antiga fica para o caso de voltar
     'Disponível': {'en': 'Available', 'es': 'Disponible', 'fr': 'Disponible'},
+    'Operar agora': {'en': 'Trade now', 'es': 'Operar ahora', 'fr': 'Trader maintenant'},
     'Ações globais': {'en': 'Global stocks', 'es': 'Acciones globales', 'fr': 'Actions mondiales'},
     '+3.000 ações · comissão zero': {
         'en': '3,000+ stocks · zero commission',
@@ -211,28 +213,22 @@ T = {
         'en': 'Clear your doubts before opening an account.',
         'es': 'Resuelve tus dudas antes de abrir la cuenta.',
         'fr': "Levez vos doutes avant d'ouvrir un compte."},
-    'Qual o depósito mínimo para começar?': {
-        'en': 'What is the minimum deposit to start?',
-        'es': '¿Cuál es el depósito mínimo para empezar?',
-        'fr': 'Quel est le dépôt minimum pour commencer ?'},
-    'Como funciona o processo de saque?': {
-        'en': 'How does the withdrawal process work?',
-        'es': '¿Cómo funciona el proceso de retiro?',
-        'fr': 'Comment fonctionne le processus de retrait ?'},
-    'A Safirion é regulamentada?': {
-        'en': 'Is Safirion regulated?', 'es': '¿Safirion está regulada?', 'fr': 'Safirion est-elle régulée ?'},
-    'O spread é fixo mesmo em alta volatilidade?': {
-        'en': 'Is the spread fixed even in high volatility?',
-        'es': '¿El spread es fijo incluso en alta volatilidad?',
-        'fr': 'Le spread est-il fixe même en forte volatilité ?'},
-    'Quais mercados posso operar na plataforma': {
-        'en': 'Which markets can I trade on the platform',
-        'es': 'Qué mercados puedo operar en la plataforma',
-        'fr': 'Quels marchés puis-je trader sur la plateforme'},
-    'Como é o suporte da Safirion?': {
-        'en': 'What is Safirion support like?',
-        'es': '¿Cómo es el soporte de Safirion?',
-        'fr': 'Comment est le support Safirion ?'},
+    'Qual o saque e depósito mínimo?': {
+        'en': 'What is the minimum deposit and withdrawal?',
+        'es': '¿Cuál es el retiro y depósito mínimo?',
+        'fr': 'Quel est le dépôt et le retrait minimum ?'},
+    'Posso tirar dinheiro quando eu quiser?': {
+        'en': 'Can I withdraw money whenever I want?',
+        'es': '¿Puedo retirar dinero cuando quiera?',
+        'fr': "Puis-je retirer de l'argent quand je veux ?"},
+    'Posso operar pelo celular?': {
+        'en': 'Can I trade from my phone?',
+        'es': '¿Puedo operar desde el móvil?',
+        'fr': 'Puis-je trader depuis mon mobile ?'},
+    'Como abrir um chamado de suporte?': {
+        'en': 'How do I open a support ticket?',
+        'es': '¿Cómo abrir un ticket de soporte?',
+        'fr': "Comment ouvrir un ticket d'assistance ?"},
 
     # -------------------------------------------------------------- rodape
     'Safirion é a plataforma de trading profissional que combina velocidade,\n      segurança e tecnologia de ponta.': {
@@ -275,36 +271,26 @@ T = {
 # Respostas do FAQ (objeto ANS do kv-faq-js e o FAQPage do JSON-LD)
 # ---------------------------------------------------------------------------
 FAQ = {
-    'Qual o depósito mínimo para começar?': {
-        'pt': 'O depósito mínimo é de US$ 10. Você abre a conta em cerca de 2 minutos, com documentação mínima e verificação rápida, e ainda recebe $100 de bônus no primeiro depósito.',
-        'en': 'The minimum deposit is US$ 10. You open the account in about 2 minutes, with minimal paperwork and fast verification, and you also get a $100 bonus on your first deposit.',
-        'es': 'El depósito mínimo es de US$ 10. Abres la cuenta en unos 2 minutos, con documentación mínima y verificación rápida, y además recibes $100 de bono en el primer depósito.',
-        'fr': "Le dépôt minimum est de 10 US$. Vous ouvrez le compte en environ 2 minutes, avec un minimum de documents et une vérification rapide, et vous recevez 100 $ de bonus au premier dépôt."},
-    'Como funciona o processo de saque?': {
-        'pt': 'Você pode abrir um pedido de saque a qualquer momento, sem burocracia e sem limite diário. O saque mínimo é de US$ 2 via carteira eletrônica e de US$ 25 para outros métodos de transferência. 100% dos saques dos últimos 6 meses foram processados em menos de 24 horas.',
-        'en': 'You can request a withdrawal at any time, with no red tape and no daily cap. The minimum withdrawal is US$ 2 via e-wallet and US$ 25 for other transfer methods. 100% of withdrawals in the last 6 months were processed in under 24 hours.',
-        'es': 'Puedes solicitar un retiro en cualquier momento, sin burocracia y sin límite diario. El retiro mínimo es de US$ 2 por monedero electrónico y de US$ 25 para otros métodos de transferencia. El 100% de los retiros de los últimos 6 meses se procesaron en menos de 24 horas.',
-        'fr': "Vous pouvez demander un retrait à tout moment, sans paperasse ni plafond quotidien. Le retrait minimum est de 2 US$ par portefeuille électronique et de 25 US$ pour les autres moyens de transfert. 100 % des retraits des 6 derniers mois ont été traités en moins de 24 heures."},
-    'A Safirion é regulamentada?': {
-        'pt': 'Sim. A Safirion opera com regulamentação internacional em Seychelles, um dos maiores centros financeiros do mundo. Seu capital fica em contas segregadas em bancos de primeiro nível, com proteção contra saldo negativo e auditoria externa trimestral.',
-        'en': 'Yes. Safirion operates under international regulation in Seychelles, one of the world&rsquo;s major financial centres. Your capital is held in segregated accounts at tier-one banks, with negative balance protection and quarterly external audits.',
-        'es': 'Sí. Safirion opera con regulación internacional en Seychelles, uno de los mayores centros financieros del mundo. Tu capital se mantiene en cuentas segregadas en bancos de primer nivel, con protección contra saldo negativo y auditoría externa trimestral.',
-        'fr': "Oui. Safirion opère sous régulation internationale aux Seychelles, l'un des principaux centres financiers mondiaux. Votre capital est conservé sur des comptes ségrégués auprès de banques de premier rang, avec protection contre solde négatif et audit externe trimestriel."},
-    'O spread é fixo mesmo em alta volatilidade?': {
-        'pt': 'Sim. O spread é fixo e garantido por contrato, a partir de 0,1 pip em Forex. Diferente de corretoras que aumentam o spread nos momentos de maior volatilidade, o seu custo por operação não muda — inclusive nos dias de crash do mercado.',
-        'en': 'Yes. The spread is fixed and guaranteed by contract, from 0.1 pip on Forex. Unlike brokers that widen the spread in the most volatile moments, your cost per trade does not change — not even on market crash days.',
-        'es': 'Sí. El spread es fijo y garantizado por contrato, desde 0,1 pip en Forex. A diferencia de brókers que amplían el spread en los momentos de mayor volatilidad, tu coste por operación no cambia — ni siquiera en días de desplome del mercado.',
-        'fr': "Oui. Le spread est fixe et garanti par contrat, dès 0,1 pip sur le Forex. Contrairement aux courtiers qui élargissent le spread dans les moments les plus volatils, votre coût par opération ne change pas — même les jours de krach."},
-    'Quais mercados posso operar na plataforma?': {
-        'pt': 'Forex com mais de 80 pares, mais de 3.000 ações globais com comissão zero, os principais índices, commodities com alavancagem de até 1:500 e 50 criptomoedas com operação 24/7 — todos na mesma plataforma, com mais de 130 ativos disponíveis.',
-        'en': 'Forex with 80+ pairs, 3,000+ global stocks at zero commission, the major indices, commodities with leverage up to 1:500 and 50 cryptocurrencies trading 24/7 — all on the same platform, with 130+ assets available.',
-        'es': 'Forex con más de 80 pares, más de 3.000 acciones globales con comisión cero, los principales índices, materias primas con apalancamiento de hasta 1:500 y 50 criptomonedas con operación 24/7 — todo en la misma plataforma, con más de 130 activos disponibles.',
-        'fr': "Le Forex avec plus de 80 paires, plus de 3 000 actions mondiales sans commission, les principaux indices, les matières premières avec un effet de levier jusqu'à 1:500 et 50 cryptomonnaies négociables 24/7 — le tout sur la même plateforme, avec plus de 130 actifs disponibles."},
-    'Como é o suporte da Safirion?': {
-        'pt': 'O suporte técnico funciona 24 horas por dia, 7 dias por semana, por chat, telefone e e-mail, com atendimento em tempo real. Você também recebe suporte dedicado nas primeiras operações.',
-        'en': 'Technical support runs 24 hours a day, 7 days a week, via chat, phone and email, with real-time assistance. You also get dedicated support for your first trades.',
-        'es': 'El soporte técnico funciona 24 horas al día, 7 días a la semana, por chat, teléfono y e-mail, con atención en tiempo real. También recibes soporte dedicado en tus primeras operaciones.',
-        'fr': "Le support technique fonctionne 24 heures sur 24, 7 jours sur 7, par chat, téléphone et e-mail, avec une assistance en temps réel. Vous bénéficiez également d'un accompagnement dédié lors de vos premières opérations."},
+    'Qual o saque e depósito mínimo?': {
+        'pt': 'O valor mínimo pode variar, mas geralmente começa em R$50. Verifique na área de depósito para confirmar o valor exato.',
+        'en': 'The minimum amount may vary, but it usually starts at R$50. Check the deposit area to confirm the exact amount.',
+        'es': 'El importe mínimo puede variar, pero generalmente empieza en R$50. Consulta el área de depósito para confirmar el valor exacto.',
+        'fr': "Le montant minimum peut varier, mais il commence généralement à 50 R$. Vérifiez dans l'espace de dépôt pour confirmer le montant exact."},
+    'Posso tirar dinheiro quando eu quiser?': {
+        'pt': 'Sim. Basta solicitar o saque a qualquer momento dentro da plataforma.',
+        'en': 'Yes. Just request the withdrawal at any time inside the platform.',
+        'es': 'Sí. Basta con solicitar el retiro en cualquier momento dentro de la plataforma.',
+        'fr': "Oui. Il suffit de demander le retrait à tout moment depuis la plateforme."},
+    'Posso operar pelo celular?': {
+        'pt': 'Sim. A plataforma é compatível com navegadores móveis e também está disponível por app.',
+        'en': 'Yes. The platform works with mobile browsers and is also available as an app.',
+        'es': 'Sí. La plataforma es compatible con navegadores móviles y también está disponible por app.',
+        'fr': "Oui. La plateforme est compatible avec les navigateurs mobiles et est également disponible via une application."},
+    'Como abrir um chamado de suporte?': {
+        'pt': 'Acesse o menu “Ajuda” ou “Suporte” dentro do painel e envie sua solicitação.',
+        'en': 'Go to the “Help” or “Support” menu inside the dashboard and send your request.',
+        'es': 'Accede al menú “Ayuda” o “Soporte” dentro del panel y envía tu solicitud.',
+        'fr': "Accédez au menu « Aide » ou « Support » dans le tableau de bord et envoyez votre demande."},
 }
 
 # ---------------------------------------------------------------------------
