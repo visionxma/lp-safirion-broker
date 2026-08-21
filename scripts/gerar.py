@@ -122,12 +122,17 @@ def traduzir_caminhos(s):
 # ---------------------------------------------------------------------------
 def traduzir(s, lang):
     # 1. textos visiveis, do mais longo para o mais curto para nao quebrar
-    #    strings que sao subcadeia de outras
+    #    strings que sao subcadeia de outras.
+    #    O espaco em volta do no de texto entra no casamento e sai preservado:
+    #    titulos como "Opere em todos os <em>mercados</em> globais" deixam um
+    #    espaco colado no sinal de menor, e com casamento exato so o miolo do
+    #    <em> era traduzido — o /en/ exibia "Opere em todos os global globais".
     for pt in sorted(i18n.T, key=len, reverse=True):
         alvo = i18n.T[pt].get(lang)
         if not alvo:
             continue
-        s = s.replace('>' + pt + '<', '>' + alvo + '<')
+        s = re.sub(r'>(\s*)%s(\s*)<' % re.escape(pt),
+                   lambda m: '>' + m.group(1) + alvo + m.group(2) + '<', s)
 
     # 2. respostas do FAQ: no objeto ANS do JS e no FAQPage do JSON-LD
     for pergunta, versoes in i18n.FAQ.items():
@@ -272,6 +277,8 @@ for lang in i18n.IDIOMAS:
     pasta = os.path.join(PUB, lang)
     os.makedirs(pasta, exist_ok=True)
     io.open(os.path.join(pasta, 'index.html'), 'w', encoding='utf-8').write(s)
-    restante = sum(1 for pt_s in i18n.T if '>' + pt_s + '<' in s and i18n.T[pt_s].get(lang))
+    restante = sum(1 for pt_s in i18n.T
+                   if re.search(r'>\s*%s\s*<' % re.escape(pt_s), s)
+                   and i18n.T[pt_s].get(lang))
     print('%s : %s/index.html  (%d bytes) — strings pt restantes: %d'
           % (lang, lang, len(s.encode('utf-8')), restante))

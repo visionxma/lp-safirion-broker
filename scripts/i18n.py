@@ -131,8 +131,8 @@ T = {
     # ------------------------------------------------------------ mercados
     'Todos os mercados': {'en': 'All markets', 'es': 'Todos los mercados', 'fr': 'Tous les marchés'},
     'Opere em todos os': {'en': 'Trade every', 'es': 'Opera en todos los', 'fr': 'Tradez sur tous les'},
-    'mercados': {'en': 'global', 'es': 'mercado', 'fr': 'marchés'},
-    'globais': {'en': 'market', 'es': 'global', 'fr': 'mondiaux'},
+    'mercados': {'en': 'global', 'es': 'mercados', 'fr': 'marchés'},
+    'globais': {'en': 'market', 'es': 'globales', 'fr': 'mondiaux'},
     'Forex, ações, índices, commodities e criptomoedas em uma única plataforma. Abra posições de compra ou venda em mercados globais, com spread fixo garantido por contrato e execução em 0,12s.': {
         'en': 'Forex, stocks, indices, commodities and crypto on a single platform. Open buy or sell positions across global markets, with a fixed spread guaranteed by contract and 0.12s execution.',
         'es': 'Forex, acciones, índices, materias primas y criptomonedas en una única plataforma. Abre posiciones de compra o venta en mercados globales, con spread fijo garantizado por contrato y ejecución en 0,12s.',
@@ -213,7 +213,7 @@ T = {
 
     # ----------------------------------------------------------- seguranca
     'é prioridade absoluta': {
-        'en': 'is the absolute priority', 'es': 'es prioridad absoluta', 'fr': 'est la priorité absolue'},
+        'en': 'is the absolute priority', 'es': 'es prioridad absoluta', 'fr': 'est une priorité absolue'},
     'Regulamentação internacional': {
         'en': 'International regulation', 'es': 'Regulación internacional', 'fr': 'Régulation internationale'},
     'SSL 256 bits': {'en': '256-bit SSL', 'es': 'SSL de 256 bits', 'fr': 'SSL 256 bits'},
@@ -252,6 +252,54 @@ T = {
         'es': '¿Cómo abrir un ticket de soporte?',
         'fr': "Comment ouvrir un ticket d'assistance ?"},
 
+    # ------------------------------------------------- como se cadastrar
+    'Como se cadastrar na': {
+        'en': 'How to sign up with', 'es': 'Cómo registrarse en',
+        'fr': "Comment s'inscrire sur"},
+    'O processo de cadastro na Safirion Broker foi desenvolvido para ser rápido, intuitivo e totalmente seguro.': {
+        'en': 'The Safirion Broker sign-up process was designed to be fast, intuitive and completely secure.',
+        'es': 'El proceso de registro en Safirion Broker fue diseñado para ser rápido, intuitivo y totalmente seguro.',
+        'fr': "Le processus d'inscription chez Safirion Broker a été conçu pour être rapide, intuitif et totalement sûr."},
+    'Em apenas alguns passos, você cria sua conta e já pode começar a operar com confiança e autonomia.': {
+        'en': 'In just a few steps you create your account and can start trading with confidence and autonomy.',
+        'es': 'En solo unos pasos creas tu cuenta y ya puedes empezar a operar con confianza y autonomía.',
+        'fr': "En quelques étapes seulement, vous créez votre compte et pouvez commencer à trader en toute confiance et autonomie."},
+    'Passo a passo para criar sua conta:': {
+        'en': 'Step by step to create your account:',
+        'es': 'Paso a paso para crear tu cuenta:',
+        'fr': 'Étape par étape pour créer votre compte :'},
+    'Acesse o site oficial da Safirion Broker:': {
+        'en': 'Go to the official Safirion Broker website:',
+        'es': 'Accede al sitio oficial de Safirion Broker:',
+        'fr': 'Accédez au site officiel de Safirion Broker :'},
+    'Clique em “Criar conta” no topo da página;': {
+        'en': 'Click “Create account” at the top of the page;',
+        'es': 'Haz clic en “Crear cuenta” en la parte superior de la página;',
+        'fr': 'Cliquez sur « Créer un compte » en haut de la page ;'},
+    'Preencha seus dados pessoais no formulário de registro;': {
+        'en': 'Fill in your personal details on the registration form;',
+        'es': 'Completa tus datos personales en el formulario de registro;',
+        'fr': "Renseignez vos données personnelles dans le formulaire d'inscription ;"},
+    'Crie uma senha forte e aceite os termos de uso;': {
+        'en': 'Create a strong password and accept the terms of use;',
+        'es': 'Crea una contraseña segura y acepta los términos de uso;',
+        'fr': "Créez un mot de passe fort et acceptez les conditions d'utilisation ;"},
+    'Confirme o cadastro por e-mail;': {
+        'en': 'Confirm your registration by email;',
+        'es': 'Confirma el registro por correo electrónico;',
+        'fr': 'Confirmez votre inscription par e-mail ;'},
+    'Faça login e explore a plataforma.': {
+        'en': 'Log in and explore the platform.',
+        'es': 'Inicia sesión y explora la plataforma.',
+        'fr': 'Connectez-vous et explorez la plateforme.'},
+    'Pronto! Seu acesso está liberado.': {
+        'en': 'Done! Your access is live.',
+        'es': '¡Listo! Tu acceso está activo.',
+        'fr': 'Voilà ! Votre accès est ouvert.'},
+    'Agora é só aproveitar as oportunidades e operar com liberdade e segurança na Safirion Broker.': {
+        'en': 'Now just take the opportunities and trade freely and safely with Safirion Broker.',
+        'es': 'Ahora solo aprovecha las oportunidades y opera con libertad y seguridad en Safirion Broker.',
+        'fr': "Il ne reste qu'à saisir les opportunités et trader librement et en sécurité chez Safirion Broker."},
     # -------------------------------------------------------------- rodape
     'Safirion é a plataforma de trading profissional que combina velocidade,\n      segurança e tecnologia de ponta.': {
         'en': 'Safirion is the professional trading platform that combines speed,\n      security and cutting-edge technology.',
