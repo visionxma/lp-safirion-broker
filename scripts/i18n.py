@@ -270,14 +270,15 @@ T = {
         'en': 'Step by step to create your account:',
         'es': 'Paso a paso para crear tu cuenta:',
         'fr': 'Étape par étape pour créer votre compte :'},
-    'Acesse o site oficial da Safirion Broker:': {
-        'en': 'Go to the official Safirion Broker website:',
-        'es': 'Accede al sitio oficial de Safirion Broker:',
-        'fr': 'Accédez au site officiel de Safirion Broker :'},
-    'Clique em “Criar conta” no topo da página;': {
-        'en': 'Click “Create account” at the top of the page;',
-        'es': 'Haz clic en “Crear cuenta” en la parte superior de la página;',
-        'fr': 'Cliquez sur « Créer un compte » en haut de la page ;'},
+    'Acesse a página de cadastro da Safirion Broker:': {
+        'en': 'Go to the Safirion Broker sign-up page:',
+        'es': 'Accede a la página de registro de Safirion Broker:',
+        'fr': "Accédez à la page d'inscription de Safirion Broker :"},
+    # cita o rotulo exato do botao, que vem do catalogo logo acima
+    'Clique em “Abrir minha conta na Safirion”;': {
+        'en': 'Click “Open my Safirion account”;',
+        'es': 'Haz clic en “Abrir mi cuenta en Safirion”;',
+        'fr': 'Cliquez sur « Ouvrir mon compte Safirion » ;'},
     'Preencha seus dados pessoais no formulário de registro;': {
         'en': 'Fill in your personal details on the registration form;',
         'es': 'Completa tus datos personales en el formulario de registro;',
