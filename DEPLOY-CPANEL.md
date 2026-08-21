@@ -110,6 +110,26 @@ public_html/api/.htaccess
 Deixá-lo lá expõe uma cópia do site inteiro em
 `safirion.com/safirion-cpanel.zip`.
 
+## Uma URL só, não quatro
+
+Antes desta versão o mesmo conteúdo respondia em quatro endereços — com e sem
+`www`, em `http` e em `https`. O canonical apontava todos para
+`https://safirion.com/`, mas o Google escolhe o que rastreia: escolheu
+`http://www.safirion.com`, e é por isso que o resultado de busca ainda mostrava
+o título antigo do site.
+
+O `.htaccess` agora manda `www` para o apex preservando o esquema. Preserva de
+propósito: redirecionar para `https` antes do certificado estar ativo deixaria o
+`www` fora do ar.
+
+**Depois de confirmar o AutoSSL no cPanel**, troque o bloco ativo pelo que está
+comentado logo abaixo dele — aí `http://www.safirion.com` vira
+`https://safirion.com` num salto só, em vez de dois.
+
+Isso não desfaz o que já está indexado. Para acelerar, use o Search Console:
+Inspeção de URL → Solicitar indexação. É mais um motivo para instalar a tag de
+verificação, que continua pendente.
+
 ## Verificar depois de subir
 
 ```sh
