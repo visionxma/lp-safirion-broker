@@ -2,6 +2,9 @@
 .wrangler/
 
 # saida do scripts/cpanel.py — build, nao fonte
+# copia do public_html baixada do servidor: 173 MB de referencia, nao fonte
+Site que tava no ar/
+
 dist-cpanel/
 safirion-cpanel.zip
 node_modules/
