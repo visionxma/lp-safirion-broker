@@ -253,6 +253,8 @@ T = {
         'fr': "Comment ouvrir un ticket d'assistance ?"},
 
     # ------------------------------------------------- como se cadastrar
+    'Como se cadastrar': {
+        'en': 'How to sign up', 'es': 'Cómo registrarse', 'fr': "Comment s'inscrire"},
     'Como se cadastrar na': {
         'en': 'How to sign up with', 'es': 'Cómo registrarse en',
         'fr': "Comment s'inscrire sur"},
